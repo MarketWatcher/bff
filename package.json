@@ -7,7 +7,8 @@
     "clean": "rm -rf dist",
     "start": "webpack-dev-server --config webpack.config.js --devtool eval --hot --progress --colors --port 3000 --inline --host 0.0.0.0",
     "test": "echo \"No tests specified\"",
-    "lint": "eslint ./src/**/*.js"
+    "lint": "eslint ./src/**/*.js",
+    "deploy": "npm run lint && npm run test && npm run build"
   },
   "repository": {
     "type": "git",
