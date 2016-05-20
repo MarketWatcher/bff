@@ -11,7 +11,7 @@ npm install
 npm run start #to run the hot loading dev server on http://localhost:3000
 ``` 
 ```sh
- npm clean build #clean build obvo
+ npm run build #clean build obvo
 ```
 
 ```sh
