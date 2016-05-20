@@ -25,3 +25,7 @@ docker login -u $DOCKER_USERNAME -e $DOCKER_EMAIL -p $DOCKER_PASSWORD #login to 
 ```
 docker push xyz/marketwatcher-io #to push to your hub account
 ```
+
+```
+docker run -d -p 8080:80 thoughtworksturkey/marketwatcher-io #to run market watcher frontend module
+```
