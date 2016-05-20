@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack",
     "clean": "rm -rf dist",
     "start": "webpack-dev-server --config webpack.config.js --devtool eval --hot --progress --colors --port 3000 --inline --host 0.0.0.0",
     "test": "echo \"No tests specified\"",
     "lint": "eslint ./src/**/*.js",
-    "deploy": "npm run lint && npm run test && npm run build"
+    "build": "npm run lint && npm run test && webpack",
+    "package": "tar cvfj dist.tar.bz2 dist"
+
   },
   "repository": {
     "type": "git",
