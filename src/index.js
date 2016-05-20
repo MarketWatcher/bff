@@ -1,11 +1,10 @@
 import React from 'react';
 import { render } from 'react-dom';
-import MainComponent from './components/MainComponent';
+import { MainLayout } from './components/main-layout';
 
-render(){
-	<MainComponent />,
-document.getElementById('content')
-
-}
+render(
+	<MainLayout />,
+	document.getElementById('content')
+);
 
 
