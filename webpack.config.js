@@ -29,7 +29,21 @@ module.exports = {
 			{
 				test: /\.html$/,
 				loader: "file?name=[name].[ext]",
-			}
+			},
+			{
+				test    : /\.css$/,
+				exclude: '/node_modules',
+				loader : 'style!css'
+			},
+			/* eslint-disable */
+			{ test: /\.woff(\?.*)?$/,  loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff" },
+			{ test: /\.woff2(\?.*)?$/, loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff2" },
+			{ test: /\.ttf(\?.*)?$/,   loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/octet-stream" },
+			{ test: /\.eot(\?.*)?$/,   loader: "file-loader?prefix=fonts/&name=[path][name].[ext]" },
+			{ test: /\.svg(\?.*)?$/,   loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=image/svg+xml" },
+			{ test: /\.png(\?.*)?$/,   loader: "url-loader?prefix=images/&name=[path][name].[ext]&limit=10000&mimetype=image/png" },
+			{ test: /\.cur(\?.*)?$/,   loader: "url-loader?prefix=images/&name=[path][name].[ext]&limit=10000&mimetype=image/cur" }
+			/* eslint-enable */
 		]
 	}
 };
