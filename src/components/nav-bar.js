@@ -3,7 +3,7 @@ import React, { Component} from 'react';
 export default class NavBar extends Component {
 	render() {
 		return (
-				<nav className="navbar navbar-fixed-top navbar-color-on-scroll">
+				<nav className="navbar navbar-fixed-top navbar-color-on-scroll navbar-transparent">
 				  <div className="container-fluid">
 				    <div className="navbar-header">
 				      <a className="navbar-brand" href="/">
@@ -12,6 +12,6 @@ export default class NavBar extends Component {
 				    </div>
 				  </div>
 				</nav>
-			);
+		);
 	}
 }
