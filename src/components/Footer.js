@@ -3,15 +3,11 @@ import React, { Component } from 'react';
 export default class Footer extends Component {
     render() {
         return(
-            <footer class="footer">
-                <div class="container">
-                    <nav class="pull-left">
-                        <ul>
-                            <li><a href="/"> © 2016 </a> </li>
-                        </ul>
-                    </nav>
-                </div>
-            </footer>
-            )
+			<footer className="footer">
+				<div className="container">
+					<p className="text-muted"> © 2016 </p>
+				</div>
+			</footer>
+		);
     }
 }
