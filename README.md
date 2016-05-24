@@ -1,31 +1,30 @@
 # marketwatcher.io
 
-## Dev Instructions
+Front End repository for Market Watcher
 
-* Clone the repository and run following:
-
+## Development Instructions
+ 
+### Get Dependencies
 ```sh 
 npm install
 ```
+
+### Run Unit Tests
 ```sh
-npm run start #to run the hot loading dev server on http://localhost:3000
+npm run test
+```
+
+### Start Development Server
+```sh
+npm run start 
 ``` 
-```sh
- npm run build #clean build obvo
-```
+After server starts, you can reach your development server via [http://localhost:3000](http://localhost:3000)
 
+### Package
 ```sh
-docker build -t thoughtworksturkey/marketwatcher-io . #to build docker image
+npm run build 
 ```
+When `build` completes, you'll find your artifact in `dist` directory.
 
-```sh
-docker login -u $DOCKER_USERNAME -e $DOCKER_EMAIL -p $DOCKER_PASSWORD #login to docker
-```
-
-```sh
-docker push xyz/marketwatcher-io #to push to your hub account
-```
-
-```sh
-docker run -d -p 8080:80 thoughtworksturkey/marketwatcher-io #to run market watcher frontend module
-```
+## TODO
+- Use HTTPS in Nginx
