@@ -15,6 +15,7 @@ import './assets/styles/style.css';
 import App from './components/App.js';
 import Landing from './components/Landing.js';
 import PersonalDashboard from './components/PersonalDashboard.js';
+import CreateNewAlarm from './components/CreateNewAlarm.js';
 
 let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)))(createStore))(reducers);
 let history = syncHistoryWithStore(browserHistory, store);
