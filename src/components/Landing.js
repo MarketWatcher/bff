@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
+import LoginForm from './LoginForm';
 
 export default class Landing extends Component {
 	render() {
 		return (
         	<div className="container">
 				<div className="jumbotron">
-  		      		<h1 className="title">Welcome to Market Watcher!</h1>
-        			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-					</p>
+        			<div className="row">
+        				<div className="col-md-8">
+        					<h1 className="title">Welcome to Market Watcher!</h1>
+	        				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus, lectus eu tincidunt efficitur, nunc ligula sollicitudin nisi, quis porta justo dolor vel arcu. Phasellus ac leo facilisis, rutrum justo gravida, tristique neque. Sed lacinia nisl in orci egestas, tempor tristique erat pulvinar. Sed orci ipsum, volutpat id mi ut, lacinia laoreet enim. In et euismod nunc. Sed rhoncus at diam vitae faucibus. Curabitur sit amet maximus quam. Mauris fermentum mollis arcu, sed aliquet eros tincidunt a. Nulla mollis eu tortor quis ultricies. Vestibulum rutrum ex non porta blandit.</p>
+						</div>
+        				<div className="col-md-4">
+							<LoginForm />
+						</div>
+        			</div>
 				</div>
         	</div>
         );
