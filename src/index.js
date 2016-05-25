@@ -7,6 +7,7 @@ import './assets/styles/style.css';
 import App from './components/App.js';
 import Landing from './components/Landing.js';
 import PersonalDashboard from './components/PersonalDashboard.js';
+import CreateNewAlarm from './components/CreateNewAlarm.js';
 
 render((
 	<Router history={hashHistory}>
@@ -14,6 +15,7 @@ render((
 			<IndexRedirect to="/landing" />
 			<Route path="landing" component={Landing} />
 			<Route path="dashboard" component={PersonalDashboard} />
+			<Route path="createnewalarm" component={CreateNewAlarm} />
 		</Route>
 	</Router>
 ), document.getElementById('content'))
