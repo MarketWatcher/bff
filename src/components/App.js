@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import * as actionCreators  from "../actions"
+import * as actionCreators  from "../actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
@@ -22,7 +22,7 @@ export class App extends Component {
 };
 
 const mapStateToProps = (state) => ({
-	user: state.user,
+	user: state.user
 });
 
 export default connect(mapStateToProps)(App);

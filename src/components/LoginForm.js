@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as actionCreators  from "../actions"
+import * as actionCreators  from "../actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
@@ -42,13 +42,14 @@ export class LoginForm extends Component {
 					</form>
 				</div>
 			</div>
-		)
+		);
 	}
 }
 
 const mapStateToProps = (state) => ({
   user: state.user
 });
+
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)
 });
