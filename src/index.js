@@ -16,6 +16,7 @@ import './assets/styles/style.css';
 import App from './components/App';
 import Landing from './components/Landing';
 import PersonalDashboard from './components/PersonalDashboard';
+import CreateAlarm from './components/CreateAlarm';
 
 let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)))(createStore))(reducers);
 let history = syncHistoryWithStore(browserHistory, store);
@@ -43,6 +44,7 @@ render((
 				<IndexRedirect to='/dashboard'/>
 				<Route path="landing" component={RedirectIfAuthenticated(Landing)} />
 				<Route path="dashboard" component={UserIsAuthenticated(PersonalDashboard)} />
+				<Route path="createalarm" component={CreateAlarm} />
 			</Route>
 		</Router>
 	</Provider>
