@@ -4,7 +4,7 @@ import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware, syncHistoryWithStore, push } from 'react-router-redux'
+import { routerMiddleware, syncHistoryWithStore, replace } from 'react-router-redux'
 import {UserAuthWrapper} from 'redux-auth-wrapper';
 
 import thunk from 'redux-thunk'
@@ -22,7 +22,7 @@ let history = syncHistoryWithStore(browserHistory, store);
 
 const UserIsAuthenticated = UserAuthWrapper({
 	authSelector: state => state.user,
-	redirectAction: push,
+	redirectAction: replace,
 	wrapperDisplayName: 'UserIsAuthenticated',
 	failureRedirectPath: 'landing',
 	predicate: user => user.loggedIn
@@ -31,7 +31,7 @@ const UserIsAuthenticated = UserAuthWrapper({
 
 const RedirectIfAuthenticated = UserAuthWrapper({
 	authSelector: state => state.user,
-	redirectAction: push,
+	redirectAction: replace,
 	wrapperDisplayName: 'RedirectIfAuthenticated',
 	failureRedirectPath: 'dashboard',
 	predicate: user => !user.loggedIn
