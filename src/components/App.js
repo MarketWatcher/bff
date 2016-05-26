@@ -8,7 +8,7 @@ import NavBar from './NavBar';
 import Footer from './Footer';
 
 
-export default class App extends Component {
+export class App extends Component {
 	render() {
 		return (
 			<div>

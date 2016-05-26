@@ -10,7 +10,7 @@ export default class NavBar extends Component {
 						<Link className="navbar-brand" to="/">Market Watcher</Link>
 					</div>
 					<div>
-						{this.props.user.email? <p className="navbar-text navbar-right">Welcome <b>{this.props.user.email}</b></p> : ''}
+						{this.props.user.loggedIn? <p className="navbar-text navbar-right">Welcome <b>{this.props.user.email}</b></p> : ''}
 					</div>
 				</div>
 			</nav>

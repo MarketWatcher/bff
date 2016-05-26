@@ -3,7 +3,7 @@ import * as actionCreators  from "../actions"
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
-export default class LoginForm extends Component {
+export class LoginForm extends Component {
 	state = {email: '', password: ''}
 
 	handleSubmit = (e) => {

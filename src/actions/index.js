@@ -8,7 +8,6 @@ let users = {
 
 export function login(email, password) {
   return dispatch => {
-
   		const valid = email != '' || password != ''
   		const correctCredentials = users[email] == password
 
@@ -17,7 +16,7 @@ export function login(email, password) {
 				type : 'LOGIN_SUCCESSFUL',
 				user: {email : email, loggedIn: true}
 			});
-
+			
  			dispatch(push('/dashboard'));
   		} else {
   			dispatch({

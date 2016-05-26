@@ -28,7 +28,6 @@ const UserIsAuthenticated = UserAuthWrapper({
 	predicate: user => user.loggedIn
 })
 
-
 const RedirectIfAuthenticated = UserAuthWrapper({
 	authSelector: state => state.user,
 	redirectAction: replace,

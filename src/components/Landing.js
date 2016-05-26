@@ -5,7 +5,7 @@ export default class Landing extends Component {
 	render() {
 		return (
         	<div className="container">
-				<div className="jumbotron section section-full-screen">
+				<div className="jumbotron">
         			<div className="row">
         				<div className="col-md-8">
         					<h1 className="title">Welcome to Market Watcher!</h1>
