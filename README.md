@@ -2,6 +2,8 @@
 
 Front End repository for Market Watcher
 
+[![Build Status](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master/build_image)](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master)
+
 ## Development Instructions
  
 ### Get Dependencies
