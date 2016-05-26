@@ -6,9 +6,8 @@ export default combineReducers({
 	user: (state = {}, action) => {
 		switch(action.type) {
 			case 'LOGIN_SUCCESSFUL':
-				return action.user;
 			case 'LOGIN_UNSUCCESSFUL':
-				return {};
+				return action.user;
 			default:
 				return state;
 		}

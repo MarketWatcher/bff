@@ -8,7 +8,22 @@ let users = {
 
 export function login(email, password) {
   return dispatch => {
-  		
- 		dispatch(push('/dashboard'))
+
+  		const valid = email != '' || password != ''
+  		const correctCredentials = users[email] == password
+
+  		if(valid && correctCredentials) {
+  			dispatch({
+				type : 'LOGIN_SUCCESSFUL',
+				user: {email : email, loggedIn: true}
+			});
+
+ 			dispatch(push('/dashboard'));
+  		} else {
+  			dispatch({
+				type: 'LOGIN_UNSUCCESSFUL',
+				user: {loggedIn: false, errorMessage: 'Username and password did not match'}
+  			});
+  		}
 	}
 }

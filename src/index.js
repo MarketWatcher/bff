@@ -4,7 +4,8 @@ import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux'
+import { routerMiddleware, syncHistoryWithStore, push } from 'react-router-redux'
+import {UserAuthWrapper} from 'redux-auth-wrapper';
 
 import thunk from 'redux-thunk'
 import reducers from './reducers'
@@ -12,22 +13,37 @@ import reducers from './reducers'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './assets/styles/style.css';
 
-import App from './components/App.js';
-import Landing from './components/Landing.js';
-import PersonalDashboard from './components/PersonalDashboard.js';
-import CreateNewAlarm from './components/CreateNewAlarm.js';
+import App from './components/App';
+import Landing from './components/Landing';
+import PersonalDashboard from './components/PersonalDashboard';
 
 let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)))(createStore))(reducers);
 let history = syncHistoryWithStore(browserHistory, store);
 
+const UserIsAuthenticated = UserAuthWrapper({
+	authSelector: state => state.user,
+	redirectAction: push,
+	wrapperDisplayName: 'UserIsAuthenticated',
+	failureRedirectPath: 'landing',
+	predicate: user => user.loggedIn
+})
+
+
+const RedirectIfAuthenticated = UserAuthWrapper({
+	authSelector: state => state.user,
+	redirectAction: push,
+	wrapperDisplayName: 'RedirectIfAuthenticated',
+	failureRedirectPath: 'dashboard',
+	predicate: user => !user.loggedIn
+})
 
 render((
 	<Provider store={store}>
 		<Router history={history}>
 			<Route path="/" component={App}>
-				<IndexRedirect to="/landing" />
-				<Route path="landing" component={Landing} />
-				<Route path="dashboard" component={PersonalDashboard} />
+				<IndexRedirect to='/dashboard'/>
+				<Route path="landing" component={RedirectIfAuthenticated(Landing)} />
+				<Route path="dashboard" component={UserIsAuthenticated(PersonalDashboard)} />
 			</Route>
 		</Router>
 	</Provider>

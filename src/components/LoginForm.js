@@ -25,12 +25,16 @@ export default class LoginForm extends Component {
 				</div>
 				<div className="panel-body">
 					<form onSubmit={this.handleSubmit}>
+						{this.props.user.errorMessage? 
+							<div className="has-error">
+								<span>{this.props.user.errorMessage}</span>
+							</div> : ''}
 						<div className="form-group">
-							<label for="exampleInputEmail1">Email address</label>
-							<input className="form-control" id="exampleInputEmail1" placeholder="Email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
+							<label htmlFor="exampleInputEmail1">Email address</label>
+							<input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
 						</div>
 						<div className="form-group">
-							<label for="exampleInputPassword1">Password</label>
+							<label htmlFor="exampleInputPassword1">Password</label>
 							<input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, 'password')}/>
 						</div>
 
@@ -43,7 +47,7 @@ export default class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user,
+  user: state.user
 });
 const mapDispatchToProps = (dispatch) => ({
   actions : bindActionCreators(actionCreators, dispatch)

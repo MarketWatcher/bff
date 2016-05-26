@@ -1,11 +1,6 @@
-html {
-	position: relative;
-	min-height: 100%;
-}
-
-body {
-	padding-top: 70px;
-	padding-bottom: 60px;
+.navbar-placeholder {
+  height: 50px;
+  margin-bottom: 20px;
 }
 
 .footer {
