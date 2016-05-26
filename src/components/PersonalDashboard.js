@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
+import {connect} from "react-redux";
+import {push} from 'react-router-redux';
 
 export default class PersonalDashboard extends Component {
+
+	handleCreationRedirect = (e) => {
+		e.preventDefault();
+		this.props.dispatch(push('/createalarm'));
+	}
+
 	render() {
 		return (
 			<div className="wrapper">
@@ -16,6 +24,11 @@ export default class PersonalDashboard extends Component {
 									<Placeholder />
 									<Placeholder />
 									<Placeholder />
+								</div>
+								<div className="panel-body bottom-right pull-right">
+									<button type="submit" className="btn btn-default"
+											onClick={this.handleCreationRedirect}>Create New Alarm
+									</button>
 								</div>
 							</div>
 						</div>
@@ -43,3 +56,5 @@ class Placeholder extends Component {
 		);
 	}
 }
+
+export default connect()(PersonalDashboard);
