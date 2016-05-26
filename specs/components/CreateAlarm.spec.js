@@ -8,7 +8,7 @@ describe('<CreateAlarm />', () => {
 
   it('contains title', () => {
     const wrapper = mount(<CreateAlarm />);
-    expect(wrapper.find('h2').text()).to.equal('Create New Alarm');
+    expect(wrapper.find('h2').text()).to.equal('Create Alarm');
   });
 
   it('contains alarm label', () => {
