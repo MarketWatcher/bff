@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-export default class CreateNewAlarm extends Component {
+export default class CreateAlarm extends Component {
 	render() {
 		return (
     	<div className="container">
-  		  <h2 className="title">Create New Alarm</h2>
+  		  <h2 className="title">Create Alarm</h2>
 
         <div id="alarmname" className="row form-group" >
           <label htmlFor="alarmnameinput" className="col-xs-3">Alarm Name: </label>

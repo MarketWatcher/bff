@@ -1,33 +1,33 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
-import CreateNewAlarm from '../../src/components/CreateNewAlarm';
+import CreateAlarm from '../../src/components/CreateAlarm';
 import { Router } from 'react-router';
 
-describe('<CreateNewAlarm />', () => {
+describe('<CreateAlarm />', () => {
 
   it('contains title', () => {
-    const wrapper = mount(<CreateNewAlarm />);
+    const wrapper = mount(<CreateAlarm />);
     expect(wrapper.find('h2').text()).to.equal('Create New Alarm');
   });
 
   it('contains alarm label', () => {
-    const wrapper = mount(<CreateNewAlarm />);
+    const wrapper = mount(<CreateAlarm />);
     expect(wrapper.find('#alarmname').name()).to.equal('div');
   });
 
   it('contains alarm criteria', () => {
-    const wrapper = mount(<CreateNewAlarm />);
+    const wrapper = mount(<CreateAlarm />);
     expect(wrapper.find('#alarmcriteria').name()).to.equal('div');
   });
 
   it('contains alarm threshold', () => {
-    const wrapper = mount(<CreateNewAlarm />);
+    const wrapper = mount(<CreateAlarm />);
     expect(wrapper.find('#threshold').name()).to.equal('div');
   });
 
   it('contains submit button', () => {
-    const wrapper = mount(<CreateNewAlarm />);
+    const wrapper = mount(<CreateAlarm />);
     var cancelButton = wrapper.find('#cancelbutton');
     expect(cancelButton.name()).to.equal('button');
   });
@@ -37,7 +37,7 @@ describe('<CreateNewAlarm />', () => {
 describe('cancel button', () => {
 
   it('navigates to home page', () => {
-    const wrapper = mount(<CreateNewAlarm />);
+    const wrapper = mount(<CreateAlarm />);
     var cancelButton = wrapper.find('#cancelbutton');
     cancelButton.simulate('click');
     //expect(currentRouteName.to.equal('dashboard'));
