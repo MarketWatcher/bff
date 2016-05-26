@@ -2,7 +2,7 @@
 
 Front End repository for Market Watcher
 
-[![Build Status](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master/build_image)](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master)
+[![Build Status](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master/build_image)](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ThoughtWorksTurkey/marketwatcher.io/badge.svg?branch=master)](https://coveralls.io/github/ThoughtWorksTurkey/marketwatcher.io?branch=master)
 
 ## Development Instructions
  
