@@ -9,7 +9,7 @@ export class LoginForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.actions.login(this.state.email, this.state.password);
+        this.props.actions.dispatchLogin(this.state.email, this.state.password);
     }
 
     handleInputChange = (field, e) => {
