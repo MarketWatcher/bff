@@ -44,7 +44,7 @@ render((
 				<IndexRedirect to='/dashboard'/>
 				<Route path="landing" component={RedirectIfAuthenticated(Landing)} />
 				<Route path="dashboard" component={UserIsAuthenticated(PersonalDashboard)} />
-				<Route path="createalert" component={UserIsAuthenticated(CreateAlarm)}/>
+				<Route path="createalert" component={UserIsAuthenticated(CreateAlert)}/>
 			</Route>
 		</Router>
 	</Provider>
