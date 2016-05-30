@@ -11,5 +11,16 @@ export default combineReducers({
 			default:
 				return state;
 		}
+	},
+	createAlert: (state = {}, action) => {
+		switch(action.type) {
+			case 'ALERT_SAVE_SUCCESSFUL':
+				return action.alert;
+			case 'ALERT_SAVE_UNSUCCESSFUL':
+				return state;
+			default:
+				return state;
+		}
 	}
+
 });

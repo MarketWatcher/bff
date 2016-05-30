@@ -17,7 +17,7 @@ export default class PersonalDashboard extends Component {
 						<div className="col-lg-8 col-md-8 col-sm-8 col-xs-8">
 							<div className="panel panel-default">
 								<div className="panel-heading">
-									<h3 className="panel-title">My Alarms</h3>
+									<h3 className="panel-title">My Alerts</h3>
 								</div>
 								<div className="panel-body">
 									<Placeholder />
