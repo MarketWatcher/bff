@@ -21,16 +21,9 @@ export class HeaderBar extends Component {
 		    </Navbar.Brand>
 	        </Navbar.Header>
 	        <Navbar.Collapse>
-				<Nav pullRight>
-				{this.props.user.loggedIn ?
-					<NavItem eventKey={1}><div>
-									 Welcome <b>{this.props.user.email}</b>
-								</div></NavItem>
-								: ''}
-			        <NavItem eventKey={2}><div>
-									{this.props.user.loggedIn ? <button id="logout-button" onClick={this.logoutClicked}>Log out</button> : ''}
-								</div></NavItem>
-			        
+				<Nav pullRight>					
+					{renderWelcomeMessage(this)}			        
+					{renderLogoutButton(this)}
 	      		</Nav>
       		</Navbar.Collapse>
 		  </Navbar>
@@ -38,6 +31,24 @@ export class HeaderBar extends Component {
 		);
 	}
 }
+
+	function renderWelcomeMessage(header) {
+		return header.props.user.loggedIn ?
+			<NavItem eventKey={1}>
+				<div>
+					 Welcome <b>{header.props.user.email}</b>
+				</div>
+			</NavItem> : '';
+	}
+
+	function renderLogoutButton(header) { 
+	    return header.props.user.loggedIn ?
+	    	<NavItem eventKey={2}>
+	    		<div>
+					<button id="logout-button" onClick={header.logoutClicked}>Log out</button>
+				</div>
+		</NavItem> : '';
+	}
 
 const mapStateToProps = (state) => ({
   user: state.user

@@ -13,11 +13,7 @@ describe("Navigation Bar", () => {
 
   	const sampleUser = {"email":"sample@example.com", "loggedIn": true}
 
-    const wrapper = shallow(
-      <HeaderBar user={sampleUser}>
-        <div className="unique" />
-      </HeaderBar>
-    );
+    const wrapper = mount(<HeaderBar user={sampleUser} />);
     expect(wrapper.find('#logout-button').name()).to.equal('button');
   });
 
