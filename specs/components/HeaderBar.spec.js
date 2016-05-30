@@ -3,7 +3,7 @@ import ReactTestUtils from 'react-addons-test-utils';
 
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
-import { HeaderBar } from '../../src/components/HeaderBar';
+import { HeaderBar } from '../../src/containers/HeaderBar';
 import { Link } from 'react-router';
 
 

@@ -48,5 +48,3 @@ class Placeholder extends Component {
         );
     }
 }
-
-export default connect()(PersonalDashboard);

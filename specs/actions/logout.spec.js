@@ -2,7 +2,7 @@ import React from 'react';
 import ReactTestUtils from 'react-addons-test-utils';
 
 import { expect } from 'chai';
-import HeaderBar from '../../src/components/HeaderBar';
+import HeaderBar from '../../src/containers/HeaderBar';
 import * as actionCreators from '../../src/actions';
 
 describe("Logout action creator", () => {
