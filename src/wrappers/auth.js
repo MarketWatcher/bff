@@ -1,7 +1,7 @@
 import {UserAuthWrapper} from 'redux-auth-wrapper';
 import { replace } from 'react-router-redux';
 
-var Authenticated =  UserAuthWrapper({
+export const Authenticated =  UserAuthWrapper({
     authSelector: state => state.user,
     redirectAction: replace,
     wrapperDisplayName: 'UserIsAuthenticated',
@@ -9,12 +9,10 @@ var Authenticated =  UserAuthWrapper({
     predicate: user => user.loggedIn
 });
 
-var Public = UserAuthWrapper({
+export const Public = UserAuthWrapper({
     authSelector: state => state.user,
     redirectAction: replace,
     wrapperDisplayName: 'RedirectIfAuthenticated',
     failureRedirectPath: 'dashboard',
     predicate: user => !user.loggedIn
 });
-
-export {Authenticated, Public};

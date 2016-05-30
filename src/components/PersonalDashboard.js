@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import {connect} from "react-redux";
-import {push} from 'react-router-redux';
+import { connect } from "react-redux";
+import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
+import * as alertActions from '../actions/alerts'
 
 export default class PersonalDashboard extends Component {
+    componentDidMount(){
+        this.props.actions.listAlerts();
+    }
     render() {
         return (
             <div className="wrapper">
@@ -15,10 +19,13 @@ export default class PersonalDashboard extends Component {
                                     <h3 className="panel-title">My Alerts</h3>
                                 </div>
                                 <div className="panel-body">
-                                    <Placeholder />
-                                    <Placeholder />
-                                    <Placeholder />
-                                    <Placeholder />
+                                    {this.props.alerts.map?
+                                        this.props.alerts.map((alert) => {
+                                            return (<div>
+                                                <Placeholder />
+                                                <Link className="btn btn-default" to={'/alerts/' + alert.id}> Details </Link>
+                                            </div>)
+                                        }): ''}
                                 </div>
                                 <div className="panel-body bottom-right pull-right">
                                     <Link className="btn btn-primary" to="/createalarm">Create Alarm</Link>
@@ -49,4 +56,13 @@ class Placeholder extends Component {
     }
 }
 
-export default connect()(PersonalDashboard);
+
+const mapStateToProps = (state) => ({
+    alerts: state.alerts
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    actions : bindActionCreators(alertActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalDashboard);

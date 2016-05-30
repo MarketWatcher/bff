@@ -1,16 +1,8 @@
 import React, { Component } from 'react';
 
-import * as actionCreators  from "../actions";
-import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
-
-import NavBar from './NavBar';
-import Footer from './Footer';
-
-
-export class Alert extends Component {
+export default class Alert extends Component {
     componentDidMount() {
-        alert(this.props.id);
+        alert(this.props.alert.title);
     }
     render() {
         return (
@@ -20,9 +12,3 @@ export class Alert extends Component {
         );
     }
 };
-
-const mapStateToProps = (state) => ({
-    alert: state.alert
-});
-
-export default connect(mapStateToProps)(Alert);

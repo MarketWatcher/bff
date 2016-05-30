@@ -31,7 +31,7 @@ render((
                 <Route path="landing" component={Public(Landing)} />
                 <Route path="dashboard" component={Authenticated(PersonalDashboard)} />
                 <Route path="createalarm" component={Authenticated(CreateAlert)}/>
-                <Route path="alerts/id/:id" component={Authenticated(Alert)}/>
+                <Route path="alerts/:id" component={Authenticated(Alert)}/>
             </Route>
         </Router>
     </Provider>

@@ -1,16 +1,17 @@
 import AlertApi from '../api/alert-api';
 
-export function findAlertById(id) {
+export function listAlerts() {
     return dispatch => {
-        AlertApi.find(id, (alert)=> {
+        AlertApi.list((alerts) => {
             dispatch({
-                type: 'ALERT_RECEIVED',
-                alert: alert
-            });
-        }, (err) => {
+                type: 'ALERTS_RECEIVED',
+                alerts: alerts
+            })
+        }, (error) => {
+            console.log(error)
             dispatch({
-                type: 'ALERT_NOT_FOUND'
-            });
+                type: 'ALERTS_NOT_FOUND'
+            })
         });
     };
 }

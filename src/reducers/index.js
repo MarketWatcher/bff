@@ -12,11 +12,12 @@ export default combineReducers({
                 return state;
         }
     },
-    alert: (state = {}, action) => {
+    alerts: (state = {}, action) => {
+        console.log(`alerts: ` + action.alerts)
         switch(action.type) {
-            case 'ALERT_RECEIVED':
-                return action.alert;
-            case 'ALERT_NOT_FOUND':
+            case 'ALERTS_RECEIVED':
+                return action.alerts;
+            case 'ALERTS_NOT_RECEIVED':
                 return {error: 404};
             default:
                 return state;
