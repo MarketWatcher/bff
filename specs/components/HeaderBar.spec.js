@@ -3,12 +3,12 @@ import ReactTestUtils from 'react-addons-test-utils';
 
 import { expect } from 'chai';
 import { shallow, mount, render } from 'enzyme';
-import { HeaderBar } from '../../src/containers/HeaderBar';
+import { HeaderBar } from '../../src/components/HeaderBar';
 import { Link } from 'react-router';
 
 
 describe("Navigation Bar", () => {
-  
+
   it("contains logout button if loggedIn", function() {
 
   	const sampleUser = {"email":"sample@example.com", "loggedIn": true}

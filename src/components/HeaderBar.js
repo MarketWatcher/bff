@@ -21,8 +21,8 @@ export class HeaderBar extends Component {
 		    </Navbar.Brand>
 	        </Navbar.Header>
 	        <Navbar.Collapse>
-				<Nav pullRight>
-					{renderWelcomeMessage(this)}
+				<Nav pullRight>					
+					{renderWelcomeMessage(this)}			        
 					{renderLogoutButton(this)}
 	      		</Nav>
       		</Navbar.Collapse>
@@ -41,7 +41,7 @@ export class HeaderBar extends Component {
 			</NavItem> : '';
 	}
 
-	function renderLogoutButton(header) {
+	function renderLogoutButton(header) { 
 	    return header.props.user.loggedIn ?
 	    	<NavItem eventKey={2}>
 	    		<div>
