@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from "react-redux";
 import {push} from 'react-router-redux';
+import { Link } from 'react-router';
 
 export default class PersonalDashboard extends Component {
 
@@ -26,9 +27,7 @@ export default class PersonalDashboard extends Component {
 									<Placeholder />
 								</div>
 								<div className="panel-body bottom-right pull-right">
-									<button type="submit" className="btn btn-default"
-											onClick={this.handleCreationRedirect}>Create New Alarm
-									</button>
+									<Link className="btn btn-primary" to="/createalarm">Create Alarm</Link>
 								</div>
 							</div>
 						</div>

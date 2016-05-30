@@ -11,5 +11,15 @@ export default combineReducers({
 			default:
 				return state;
 		}
-	}
+	},
+    alert: (state = {}, action) => {
+        switch(action.type) {
+            case 'ALERT_RECEIVED':
+                return action.alert
+            case 'ALERT_NOT_FOUND':
+                return {error: 404};
+            default:
+                return state;
+        }
+    }
 });

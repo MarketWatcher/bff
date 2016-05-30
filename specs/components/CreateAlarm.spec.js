@@ -40,7 +40,6 @@ describe('cancel button', () => {
     const wrapper = mount(<CreateAlarm />);
     var cancelButton = wrapper.find('#cancelbutton');
     cancelButton.simulate('click');
-    //expect(currentRouteName.to.equal('dashboard'));
   });
 });
 
