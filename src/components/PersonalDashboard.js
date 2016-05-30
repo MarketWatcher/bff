@@ -21,7 +21,7 @@ export default class PersonalDashboard extends Component {
                                     <Placeholder />
                                 </div>
                                 <div className="panel-body bottom-right pull-right">
-                                    <Link className="btn btn-primary" to="/createalarm">Create Alarm</Link>
+                                    <Link className="btn btn-primary" to="/createalert">Create Alert</Link>
                                 </div>
                             </div>
                         </div>

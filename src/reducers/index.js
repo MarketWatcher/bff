@@ -3,15 +3,7 @@ import { routerReducer } from 'react-router-redux';
 
 export default combineReducers({
     routing: routerReducer,
-    user: (state = {}, action) => {
-        switch(action.type) {
-            case 'LOGIN_SUCCESSFUL':
-            case 'LOGIN_UNSUCCESSFUL':
-                return action.user;
-            default:
-                return state;
-        }
-    },
+    user: userReducer,
     alert: (state = {}, action) => {
         switch(action.type) {
             case 'ALERT_RECEIVED':
@@ -33,3 +25,16 @@ export default combineReducers({
         }
     }
 });
+
+export function userReducer(userState = {}, action) {
+	switch(action.type) {
+		case 'LOGIN_SUCCESSFUL':
+		case 'LOGIN_UNSUCCESSFUL':
+			return action.user;
+		case 'LOGOUT':
+			userState = {loggedIn : false};
+			return Object.assign({}, userState);
+		default:
+			return userState;
+	}
+}

@@ -26,3 +26,14 @@ export function login(email, password) {
   		}
 	};
 }
+
+export function dispatchLogout() {
+    return dispatch => {
+        dispatch(logout());
+        dispatch(push('/landing'));
+    }
+}
+
+export function logout() {
+	return {type : 'LOGOUT'};
+}
