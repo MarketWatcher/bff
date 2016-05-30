@@ -26,7 +26,7 @@ describe('<CreateAlert />', () => {
     expect(wrapper.find('#threshold').name()).to.equal('div');
   });
 
-  it('contains submit button', () => {
+  it('contains cancel button', () => {
     const wrapper = mount(<CreateAlert />);
     var cancelButton = wrapper.find('#cancelbutton');
     expect(cancelButton.name()).to.equal('button');
