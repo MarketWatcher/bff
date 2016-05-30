@@ -4,46 +4,46 @@ import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
 export class LoginForm extends Component {
-	state = {email: '', password: ''}
+    state = {email: '', password: ''}
 
-	handleSubmit = (e) => {
-		e.preventDefault();
-		this.props.actions.login(this.state.email, this.state.password);
-	}
+    handleSubmit = (e) => {
+        e.preventDefault();
+        this.props.actions.login(this.state.email, this.state.password);
+    }
 
-	handleInputChange = (field, e) => {
-		var newState = this.state;
-		newState[field] = e.target.value;
-		this.setState(newState);
-	}
+    handleInputChange = (field, e) => {
+        var newState = this.state;
+        newState[field] = e.target.value;
+        this.setState(newState);
+    }
 
-	render() {
-		return (
-			<div className="panel panel-default">
-				<div className="panel-heading">
-				    <h3 className="panel-title">LOGIN</h3>
-				</div>
-				<div className="panel-body">
-					<form onSubmit={this.handleSubmit}>
-						{this.props.user.errorMessage? 
-							<div className="has-error">
-								<span>{this.props.user.errorMessage}</span>
-							</div> : ''}
-						<div className="form-group">
-							<label htmlFor="exampleInputEmail1">Email address</label>
-							<input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
-						</div>
-						<div className="form-group">
-							<label htmlFor="exampleInputPassword1">Password</label>
-							<input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, 'password')}/>
-						</div>
+    render() {
+        return (
+            <div className="panel panel-default">
+                <div className="panel-heading">
+                    <h3 className="panel-title">LOGIN</h3>
+                </div>
+                <div className="panel-body">
+                    <form onSubmit={this.handleSubmit}>
+                        {this.props.user.errorMessage?
+                            <div className="has-error">
+                                <span>{this.props.user.errorMessage}</span>
+                            </div> : ''}
+                        <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Email address</label>
+                            <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="exampleInputPassword1">Password</label>
+                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, 'password')}/>
+                        </div>
 
-						<button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
-					</form>
-				</div>
-			</div>
-		);
-	}
+                        <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
+                    </form>
+                </div>
+            </div>
+        );
+    }
 }
 
 const mapStateToProps = (state) => ({
@@ -55,4 +55,3 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
-

@@ -6,11 +6,11 @@ export function findAlertById(id) {
             dispatch({
                 type: 'ALERT_RECEIVED',
                 alert: alert
-            })
+            });
         }, (err) => {
             dispatch({
                 type: 'ALERT_NOT_FOUND'
             });
-        })
-    }
+        });
+    };
 }

@@ -10,19 +10,19 @@ import Footer from './Footer';
 
 export class Alert extends Component {
     componentDidMount() {
-        alert(this.props.id)
+        alert(this.props.id);
     }
-	render() {
-		return (
-			<div>
-				{this.props.id}
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div>
+                {this.props.id}
+            </div>
+        );
+    }
 };
 
 const mapStateToProps = (state) => ({
-	alert: state.alert
+    alert: state.alert
 });
 
 export default connect(mapStateToProps)(Alert);
