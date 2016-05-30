@@ -31,7 +31,7 @@ export function dispatchLogout() {
     return dispatch => {
         dispatch(logout());
         dispatch(push('/landing'));
-    }
+    };
 }
 
 export function logout() {
