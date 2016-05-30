@@ -12,6 +12,7 @@ export default combineReducers({
 				return state;
 		}
 	},
+<<<<<<< HEAD
     alert: (state = {}, action) => {
         switch(action.type) {
             case 'ALERT_RECEIVED':
@@ -22,4 +23,17 @@ export default combineReducers({
                 return state;
         }
     }
+=======
+	createAlert: (state = {}, action) => {
+		switch(action.type) {
+			case 'ALERT_SAVE_SUCCESSFUL':
+				return action.alert;
+			case 'ALERT_SAVE_UNSUCCESSFUL':
+				return state;
+			default:
+				return state;
+		}
+	}
+
+>>>>>>> 025f8f2ed9aa683942325a80e2fba14b8d1bc953
 });

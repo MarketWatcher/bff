@@ -16,8 +16,9 @@ import './assets/styles/style.css';
 import App from './components/App';
 import Landing from './components/Landing';
 import PersonalDashboard from './components/PersonalDashboard';
-import CreateAlarm from './components/CreateAlarm';
+
 import Alert from './components/Alert';
+import CreateAlert from './components/CreateAlert';
 
 let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)))(createStore))(reducers);
 let history = syncHistoryWithStore(browserHistory, store);
@@ -29,7 +30,7 @@ render((
 				<IndexRedirect to='/dashboard'/>
 				<Route path="landing" component={Public(Landing)} />
 				<Route path="dashboard" component={Authenticated(PersonalDashboard)} />
-				<Route path="createalarm" component={Authenticated(CreateAlarm)}/>
+				<Route path="createalarm" component={Authenticated(CreateAlert)}/>
 				<Route path="alerts/id/:id" component={Authenticated(Alert)}/>
 			</Route>
 		</Router>
