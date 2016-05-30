@@ -6,6 +6,7 @@ import { push } from 'react-router-redux'
 
 export class CreateAlert extends Component {
 	state = {alertName: '', alertThreshold: 0, requiredCriteria: '', niceTohaveCriteria: '', excludedCriteria: ''}
+
 	handleCancel = (e) => {
 		e.preventDefault();
 		this.props.dispatch(push('/dashboard'));
@@ -13,7 +14,7 @@ export class CreateAlert extends Component {
 
 	handleSave = (e) => {
 		e.preventDefault();
-		  this.props.actions.saveAlert(this.state.alertName, this.state.requiredCriteria, this.state.niceTohaveCriteria,
+		this.props.actions.saveAlert(this.state.alertName, this.state.requiredCriteria, this.state.niceTohaveCriteria,
 			this.state.excludedCriteria, this.state.alertThreshold);
 	}
 
@@ -55,7 +56,7 @@ export class CreateAlert extends Component {
 									onChange={this.handleInputChange.bind(this, 'excludedCriteria')}  value={this.state.excludedCriteria}  />
                 </div>
               </div>
-          </div>
+            </div>
 
             <div id="threshold" className="row form-group" >
               <label htmlFor="alertthreshold" className="col-xs-3">Threshold: </label>
