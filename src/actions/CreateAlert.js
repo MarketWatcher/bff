@@ -23,7 +23,7 @@ export function saveAlert(alertName, requiredCriteria, niceTohaveCriteria, exclu
             type : 'ALERT_SAVE_SUCCESSFUL',
             alert : {alertName : alertName, requiredCriteria: requiredCriteriaList, niceTohaveCriteria: niceTohaveCriteriaList,
                 excludedCriteria: excludedCriteriaList, alertThreshold : alertThreshold}
-            }
+            };
         } else {
             return {
                 type: 'ALERT_SAVE_UNSUCCESSFUL'
@@ -39,5 +39,5 @@ export function saveAlert(alertName, requiredCriteria, niceTohaveCriteria, exclu
     function dispatchCreateAlert(success, payload) {
         return dispatch => {
             dispatch(saveAlert());
-        }
+        };
     }
