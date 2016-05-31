@@ -7,7 +7,7 @@ import { HeaderBar } from '../../src/components/HeaderBar';
 import { Link } from 'react-router';
 
 
-describe("Navigation Bar", () => {
+describe("Header Bar component", () => {
 
   it("contains logout button if loggedIn", function() {
 

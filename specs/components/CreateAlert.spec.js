@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import ConnectedCreateAlert, { CreateAlert } from '../../src/components/CreateAlert';
 import { Router } from 'react-router';
 
-describe('<CreateAlert />', () => {
+describe('CreateAlert component', () => {
 
   it('contains title', () => {
     const wrapper = mount(<CreateAlert />);
