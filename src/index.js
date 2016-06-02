@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import { createStore, applyMiddleware, compose } from 'redux';
 import { routerMiddleware, syncHistoryWithStore } from 'react-router-redux';
 import {Authenticated, Public} from './wrappers/auth';
@@ -15,6 +15,7 @@ import './assets/styles/style.css';
 
 import App from './components/App';
 import Landing from './components/Landing';
+
 import PersonalDashboard from './components/PersonalDashboard';
 
 import Alert from './components/Alert';
@@ -35,4 +36,4 @@ render((
             </Route>
         </Router>
     </Provider>
-), document.getElementById('content'))
+), document.getElementById('content'));

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import * as actionCreators  from "../actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
+import { FormControl, ControlLabel } from 'react-bootstrap';
 
 export class LoginForm extends Component {
     state = {email: '', password: ''}
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.actions.login(this.state.email, this.state.password);
+        this.props.actions.dispatchLogin(this.state.email, this.state.password);
     }
 
     handleInputChange = (field, e) => {
@@ -30,8 +31,8 @@ export class LoginForm extends Component {
                                 <span>{this.props.user.errorMessage}</span>
                             </div> : ''}
                         <div className="form-group">
-                            <label htmlFor="exampleInputEmail1">Email address</label>
-                            <input type="email" className="form-control" id="exampleInputEmail1" placeholder="Email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
+                            <ControlLabel>Email address</ControlLabel>
+                            <FormControl placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Password</label>

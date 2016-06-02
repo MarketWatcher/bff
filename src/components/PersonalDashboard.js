@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { Link } from 'react-router';
-import * as alertActions from '../actions/alerts'
+import * as alertActions from '../actions/alerts';
 
 export default class PersonalDashboard extends Component {
     componentDidMount(){
@@ -19,16 +19,17 @@ export default class PersonalDashboard extends Component {
                                     <h3 className="panel-title">My Alerts</h3>
                                 </div>
                                 <div className="panel-body">
-                                    {this.props.alerts.map?
+                                    {this.props.alerts &&
                                         this.props.alerts.map((alert) => {
                                             return (<div>
                                                 <Placeholder />
                                                 <Link className="btn btn-default" to={'/alerts/' + alert.id}> Details </Link>
-                                            </div>)
-                                        }): ''}
+                                            </div>);
+                                        })
+                                    }
                                 </div>
                                 <div className="panel-body bottom-right pull-right">
-                                    <Link className="btn btn-primary" to="/createalarm">Create Alarm</Link>
+                                    <Link className="btn btn-primary" to="/createalert">Create Alert</Link>
                                 </div>
                             </div>
                         </div>
@@ -55,7 +56,6 @@ class Placeholder extends Component {
         );
     }
 }
-
 
 const mapStateToProps = (state) => ({
     alerts: state.alerts

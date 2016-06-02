@@ -6,12 +6,11 @@ export function listAlerts() {
             dispatch({
                 type: 'ALERTS_RECEIVED',
                 alerts: alerts
-            })
+            });
         }, (error) => {
-            console.log(error)
             dispatch({
                 type: 'ALERTS_NOT_FOUND'
-            })
+            });
         });
     };
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as actionCreators  from "../actions/createalert";
+import * as actionCreators  from "../actions";
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 import { push } from 'react-router-redux';
@@ -14,7 +14,7 @@ export class CreateAlert extends Component {
 
     handleSave = (e) => {
         e.preventDefault();
-        this.props.actions.saveAlert(this.state.alertName, this.state.requiredCriteria, this.state.niceTohaveCriteria,
+        this.props.actions.dispatchCreateAlert(this.state.alertName, this.state.requiredCriteria, this.state.niceTohaveCriteria,
             this.state.excludedCriteria, this.state.alertThreshold);
     }
 

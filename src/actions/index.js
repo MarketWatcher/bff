@@ -7,22 +7,36 @@ let users = {
 };
 
 export function login(email, password) {
-  return dispatch => {
-  		const valid = email != '' || password != '';
-  		const correctCredentials = users[email] == password;
+	const valid = email != '' || password != '';
+	const correctCredentials = users[email] == password;
 
-  		if(valid && correctCredentials) {
-  			dispatch({
-				type : 'LOGIN_SUCCESSFUL',
-				user: {email : email, loggedIn: true}
-			});
+	if(valid && correctCredentials) {
+		return {
+			type : 'LOGIN_SUCCESSFUL',
+			user: {email : email, loggedIn: true}
+		};
+	} else {
+		return {
+			type: 'LOGIN_UNSUCCESSFUL',
+			user: {loggedIn: false, errorMessage: 'Username and password did not match'}
+		};
+	}
+}
 
- 			dispatch(push('/dashboard'));
-  		} else {
-  			dispatch({
-				type: 'LOGIN_UNSUCCESSFUL',
-				user: {loggedIn: false, errorMessage: 'Username and password did not match'}
-  			});
-  		}
-	};
+export function dispatchLogin(email, password) {
+	return dispatch => {
+        dispatch(login());
+        dispatch(push('/dashboard'));
+    };
+}
+
+export function dispatchLogout() {
+    return dispatch => {
+        dispatch(logout());
+        dispatch(push('/landing'));
+    };
+}
+
+export function logout() {
+	return {type : 'LOGOUT'};
 }

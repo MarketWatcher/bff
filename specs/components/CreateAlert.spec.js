@@ -4,7 +4,7 @@ import { shallow, mount, render } from 'enzyme';
 import ConnectedCreateAlert, { CreateAlert } from '../../src/components/CreateAlert';
 import { Router } from 'react-router';
 
-describe('<CreateAlert />', () => {
+describe('CreateAlert component', () => {
 
   it('contains title', () => {
     const wrapper = mount(<CreateAlert />);
@@ -26,7 +26,7 @@ describe('<CreateAlert />', () => {
     expect(wrapper.find('#threshold').name()).to.equal('div');
   });
 
-  it('contains submit button', () => {
+  it('contains cancel button', () => {
     const wrapper = mount(<CreateAlert />);
     var cancelButton = wrapper.find('#cancelbutton');
     expect(cancelButton.name()).to.equal('button');
