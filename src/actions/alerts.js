@@ -30,3 +30,19 @@ export function findById(id) {
         });
     };
 }
+
+export function createAlert(newAlert) {
+    return dispatch => {
+        AlertApi.createAlert(newAlert, (alert) => {
+            dispatch({
+                type: 'CREATE_ALERT_SUCCESSFUL',
+                alert: alert
+            });
+        }, (error) => {
+            dispatch({
+                type: 'CREATE_ALERT_UNSUCCESSFUL',
+                error: error
+            });
+        });
+    };
+}
