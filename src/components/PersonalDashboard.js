@@ -19,14 +19,17 @@ export default class PersonalDashboard extends Component {
                                     <h3 className="panel-title">My Alerts</h3>
                                 </div>
                                 <div className="panel-body">
-                                    {this.props.alerts &&
-                                        this.props.alerts.map((alert) => {
-                                            return (<div>
-                                                <Placeholder />
-                                                <Link className="btn btn-default" to={'/alerts/' + alert.id}> Details </Link>
-                                            </div>);
-                                        })
-                                    }
+                                    <div className="row">
+                                        {this.props.alerts &&
+                                            this.props.alerts.map((alert) => {
+                                                return (
+                                                    <div key={alert.id}>
+                                                        <Placeholder />
+                                                        <Link className="btn btn-default" to={'/alerts/' + alert.id} routerProps={{alert}}> Details </Link>
+                                                    </div>);
+                                            })
+                                        }
+                                    </div>
                                 </div>
                                 <div className="panel-body bottom-right pull-right">
                                     <Link className="btn btn-primary" to="/createalert">Create Alert</Link>

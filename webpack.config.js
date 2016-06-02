@@ -4,8 +4,9 @@ var path = require('path');
 module.exports = {
 	name: 'market-watcher',
 	entry: {
-		app: "./src/index.js"
+		app: ["./src/index.js"]
 	},
+    devtool: 'source-map',
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/",
@@ -45,5 +46,15 @@ module.exports = {
 			{ test: /\.cur(\?.*)?$/,   loader: "url-loader?prefix=images/&name=[path][name].[ext]&limit=10000&mimetype=image/cur" }
 			/* eslint-enable */
 		]
-	}
+	},
+    devServer: {
+        proxy: {
+            "/api/alerts*": {
+                target: 'http://localhost:8000',
+                rewrite: (req) => {
+                  req.url = req.url.replace(/^\/api/, '');
+                }
+            }
+        }
+    }
 };

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import * as actionCreators  from "../actions";
+import * as alertActions from '../actions/alerts';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
@@ -8,13 +8,24 @@ import Footer from './Footer';
 
 export default class Alert extends Component {
     componentDidMount() {
-        alert(this.props.alert.title);
+        this.props.actions.findById(this.props.params.id);
     }
     render() {
         return (
             <div>
-                {this.props.id}
+                {this.props.alert.title}
             </div>
         );
     }
 };
+
+
+const mapStateToProps = (state) => ({
+    alert: state.alert
+});
+
+const mapDispatchToProps = (dispatch) => ({
+    actions : bindActionCreators(alertActions, dispatch)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Alert);

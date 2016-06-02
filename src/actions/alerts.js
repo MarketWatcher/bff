@@ -14,3 +14,19 @@ export function listAlerts() {
         });
     };
 }
+
+export function findById(id) {
+    return dispatch => {
+        AlertApi.findById(id, (alert) => {
+            dispatch({
+                type: 'GET_ALERT_SUCCESSFUL',
+                alert: alert
+            });
+        }, (error) => {
+            dispatch({
+                type: 'GET_ALERT_UNSUCCESSFUL',
+                error: error
+            });
+        });
+    };
+}

@@ -4,12 +4,24 @@ import { routerReducer } from 'react-router-redux';
 export default combineReducers({
     routing: routerReducer,
     user: userReducer,
-    alert: (state = {}, action) => {
+    alerts: (state = [], action) => {
         switch(action.type) {
             case 'ALERTS_RECEIVED':
                 return action.alerts;
             case 'ALERTS_NOT_RECEIVED':
                 return {error: 404};
+            case 'ALERT_SAVE_SUCCESSFUL':
+                return state.push(action.alert);
+            default:
+                return state;
+        }
+    },
+    alert: (state = {}, action) => {
+        switch(action.type) {
+            case 'GET_ALERT_SUCCESSFUL':
+                return action.alert;
+            case 'GET_ALERT_UNSUCCESSFUL':
+                return {message: 'get alert failed: ' + action.error.message};
             default:
                 return state;
         }
