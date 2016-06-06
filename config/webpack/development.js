@@ -5,6 +5,7 @@ webpackConfig.devtools = 'source-map';
 webpackConfig.plugins.push(
   new webpack.DefinePlugin({
     __DEVELOPMENT__: true,
+    __ALERTS_SERVICE_URI__: "http://localhost:8000"
   }),
 );
 
@@ -12,9 +13,6 @@ webpackConfig.devServer = {
     proxy: {
         "/api/alerts*": {
             target: 'http://localhost:8000',
-            rewrite: (req) => {
-              req.url = req.url.replace(/^\/api/, '');
-            }
         }
     }
 };

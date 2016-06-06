@@ -32,6 +32,7 @@ export function findById(id) {
 }
 
 export function createAlert(newAlert) {
+
     return dispatch => {
         AlertApi.createAlert(newAlert, (alert) => {
             dispatch({
@@ -46,3 +47,4 @@ export function createAlert(newAlert) {
         });
     };
 }
+
