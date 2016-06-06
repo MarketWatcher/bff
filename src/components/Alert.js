@@ -6,15 +6,15 @@ import { bindActionCreators } from 'redux';
 import HeaderBar from './HeaderBar';
 import Footer from './Footer';
 
-export default class Alert extends Component {
+export class Alert extends Component {
     componentDidMount() {
         this.props.actions.findById(this.props.params.id);
     }
     render() {
         return (
-            <div>
+            <span className='alert-title'>
                 {this.props.alert.title}
-            </div>
+            </span>
         );
     }
 };
