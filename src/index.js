@@ -21,19 +21,39 @@ import PersonalDashboard from './components/PersonalDashboard';
 import Alert from './components/Alert';
 import CreateAlert from './components/CreateAlert';
 
-let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)))(createStore))(reducers);
+import DevTools from './containers/DevTools';
+
+
+let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)), DevTools.instrument())(createStore))(reducers);
 let history = syncHistoryWithStore(browserHistory, store);
 
-render((
-    <Provider store={store}>
-        <Router history={history}>
-            <Route path="/" component={App}>
-                <IndexRedirect to='/dashboard'/>
-                <Route path="landing" component={Public(Landing)} />
-                <Route path="dashboard" component={Authenticated(PersonalDashboard)} />
-                <Route path="createalert" component={Authenticated(CreateAlert)}/>
-                <Route path="alerts/:id" component={Authenticated(Alert)}/>
-            </Route>
-        </Router>
-    </Provider>
-), document.getElementById('content'));
+const routerComponent = (
+  <Router history={history}>
+      <Route path="/" component={App}>
+          <IndexRedirect to='/dashboard'/>
+          <Route path="landing" component={Public(Landing)} />
+          <Route path="dashboard" component={Authenticated(PersonalDashboard)} />
+          <Route path="createalert" component={Authenticated(CreateAlert)}/>
+          <Route path="alerts/:id" component={Authenticated(Alert)}/>
+      </Route>
+  </Router>
+);
+
+if(__DEVELOPMENT__ && !window.devToolsExtension){
+  render((
+      <Provider store={store}>
+        <div>
+            {routerComponent}
+            <DevTools/>
+        </div>
+      </Provider>
+  ), document.getElementById('content'));
+}else{
+  render((
+      <Provider store={store}>
+        <div>
+            {routerComponent}
+        </div>
+      </Provider>
+  ), document.getElementById('content'));
+}

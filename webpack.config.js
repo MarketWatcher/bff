@@ -1,12 +1,13 @@
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
 	name: 'market-watcher',
 	entry: {
 		app: ["./src/index.js"]
 	},
-    devtool: 'source-map',
+  devtool: 'source-map',
 	output: {
 		path: path.resolve(__dirname, "dist"),
 		publicPath: "/",
@@ -18,7 +19,10 @@ module.exports = {
 			inject: 'body',
 			hash: false,
 			filename : 'index.html'
-		})
+		}),
+		new webpack.DefinePlugin({
+      __DEVELOPMENT__: true,
+    }),
 	],
 	module : {
 		loaders : [
