@@ -26,7 +26,7 @@ export default class AlertApi {
                 "ExcludedCriteria" : newAlert.excludedCriteria,
                 "Threshold" : parseInt(newAlert.threshold, 10),
                 "Status" : 1 
-            }
+            };
         fetch('http://backend:8000/alerts', {   
             method: 'POST',
             headers: {
