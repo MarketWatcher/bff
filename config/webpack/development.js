@@ -12,9 +12,6 @@ webpackConfig.devServer = {
     proxy: {
         "/api/alerts*": {
             target: 'http://localhost:8000',
-            rewrite: (req) => {
-              req.url = req.url.replace(/^\/api/, '');
-            }
         }
     }
 };

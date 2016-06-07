@@ -3,22 +3,24 @@ import * as alertActions from '../actions/alerts';
 import { connect } from "react-redux";
 import { bindActionCreators } from 'redux';
 
-import HeaderBar from './HeaderBar';
-import Footer from './Footer';
-
 export class Alert extends Component {
     componentDidMount() {
         this.props.actions.findById(this.props.params.id);
     }
+
     render() {
         return (
-            <span className='alert-title'>
-                {this.props.alert.title}
-            </span>
+          <div className="alert-detail panel panel-default">
+            <div className="panel-heading">
+              <h3 className="panel-title">{this.props.alert.title}</h3>
+            </div>
+            <div className="panel-body">
+              Panel content
+            </div>
+          </div>
         );
     }
 };
-
 
 const mapStateToProps = (state) => ({
     alert: state.alert
