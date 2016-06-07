@@ -15,7 +15,8 @@ describe('Alert component', () => {
   });
 
   it('contains title', () => {
-    expect(wrapper.contains(<h3 class="panel-title">{alert.title}</h3>)).to.equal(true);
+    let alertTitle = wrapper.find('.panel-title');
+    expect(alertTitle.text()).to.equal(alert.title);
   });
 
 });
