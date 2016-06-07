@@ -2,7 +2,7 @@
 export default class AlertApi {
 
     static list(cb, err) {
-        let alertServiceURL = 'http://backend:8000/alerts/';
+        let alertServiceURL = 'http://localhost:8000/alerts/';
         fetch(alertServiceURL)
         .then(res => res.json())
         .then(json => cb(json))
@@ -10,7 +10,7 @@ export default class AlertApi {
     }
 
     static findById(id, cb, err) {
-        fetch('http://backend:8000/alerts/id/${id}')
+        fetch('http://localhost:8000/alerts/id/${id}')
         .then(res => res.json())
         .then(json => cb(json))
         .catch(ex => err(ex));
@@ -27,7 +27,7 @@ export default class AlertApi {
                 "Threshold" : parseInt(newAlert.threshold, 10),
                 "Status" : 1
             };
-        fetch('http://backend:8000/alerts', {
+        fetch('http://localhost:8000/alerts', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
