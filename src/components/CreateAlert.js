@@ -78,7 +78,7 @@ export class CreateAlert extends Component {
               </div>
             </div>
 
-            <div id="threshold" className="row form-group" >
+            <div id="alert-threshold" className="row form-group" >
               <label htmlFor="threshold" className="col-xs-3">Threshold: </label>
               <input id="threshold" 
                      type="numeric" 

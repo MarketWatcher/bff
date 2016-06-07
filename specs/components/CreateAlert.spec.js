@@ -23,7 +23,7 @@ describe('CreateAlert component', () => {
 
   it('contains alert threshold', () => {
     const wrapper = mount(<CreateAlert />);
-    expect(wrapper.find('#threshold').name()).to.equal('div');
+    expect(wrapper.find('#alert-threshold').name()).to.equal('div');
   });
 
   it('contains cancel button', () => {
