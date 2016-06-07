@@ -7,7 +7,7 @@ import { Router } from 'react-router';
 describe('Alert component', () => {
   let wrapper;
   let alert ={
-    title: 'Sample Alert Title'
+    name: 'Sample Alert Title'
   };
 
   before(() => {
@@ -16,7 +16,7 @@ describe('Alert component', () => {
 
   it('contains title', () => {
     let alertTitle = wrapper.find('.panel-title');
-    expect(alertTitle.text()).to.equal(alert.title);
+    expect(alertTitle.text()).to.equal(alert.name);
   });
 
 });

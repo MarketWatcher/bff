@@ -12,7 +12,7 @@ export class Alert extends Component {
         return (
           <div className="alert-detail panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title">{this.props.alert.title}</h3>
+              <h3 className="panel-title">{this.props.alert.name}</h3>
             </div>
             <div className="panel-body">
               Panel content
