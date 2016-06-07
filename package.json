@@ -22,7 +22,9 @@
   },
   "homepage": "https://github.com/ThoughtWorksTurkey/marketwatcher.io#readme",
   "dependencies": {
+    "body-parser": "^1.15.1",
     "bootstrap": "^3.3.6",
+    "express": "^4.13.4",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.2",
