@@ -10,7 +10,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/alerts', function (req, res) {
+app.get('/alerts/owner_id/:id', function (req, res) {
   res.send(alerts);
 });
 
@@ -23,7 +23,7 @@ app.post('/alerts', function(req, res){
   req.body.id = idCount;
   idCount++;
   alerts.push(req.body);
-  res.send();
+  res.send(req.body);
 });
 
 

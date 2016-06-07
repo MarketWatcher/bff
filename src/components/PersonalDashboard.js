@@ -6,7 +6,7 @@ import * as alertActions from '../actions/alerts';
 
 export default class PersonalDashboard extends Component {
     componentDidMount(){
-        this.props.actions.listAlerts();
+        this.props.actions.listAlerts(this.props.user.id);
     }
     render() {
         return (
@@ -61,7 +61,8 @@ class Placeholder extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    alerts: state.alerts
+    alerts: state.alerts,
+    user: state.user
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -1,8 +1,8 @@
 import AlertApi from '../api/alert-api';
 
-export function listAlerts() {
+export function listAlerts(ownerId) {
     return dispatch => {
-        AlertApi.list((alerts) => {
+        AlertApi.list(ownerId, (alerts) => {
             dispatch({
                 type: 'ALERTS_RECEIVED',
                 alerts: alerts
@@ -47,4 +47,3 @@ export function createAlert(newAlert) {
         });
     };
 }
-

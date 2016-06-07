@@ -1,8 +1,8 @@
 
 export default class AlertApi {
 
-    static list(cb, err) {
-        let alertServiceURL = 'http://localhost:8000/alerts/';
+    static list(ownerId, cb, err) {
+        let alertServiceURL = 'http://localhost:8000/alerts/owner_id/${ownerId}';
         fetch(alertServiceURL)
         .then(res => res.json())
         .then(json => cb(json))
