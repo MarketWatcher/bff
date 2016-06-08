@@ -18,14 +18,13 @@ export default class AlertApi {
 
     static createAlert(newAlert, cb, err) {
         let convertedAlert = {
-                "ID" : newAlert.ID,
-                "OwnerID" : newAlert.ownerID,
-                "Name" : newAlert.name,
-                "RequiredCriteria" : newAlert.requiredCriteria,
-                "NiceToHaveCriteria" : newAlert.niceTohaveCriteria,
-                "ExcludedCriteria" : newAlert.excludedCriteria,
-                "Threshold" : parseInt(newAlert.threshold, 10),
-                "Status" : 1 
+                "owner_id" : newAlert.ownerID,
+                "name" : newAlert.name,
+                "required_criteria" : newAlert.requiredCriteria,
+                "nice_to_have_criteria" : newAlert.niceTohaveCriteria,
+                "excluded_criteria" : newAlert.excludedCriteria,
+                "threshold" : parseInt(newAlert.threshold, 10),
+                "status" : 1 
             };
         fetch('http://backend:8000/alerts', {   
             method: 'POST',
