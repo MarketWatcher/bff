@@ -1,7 +1,7 @@
 import webpackConfig from './_base';
 var webpack = require('webpack');
 
-webpackConfig.devtools = 'source-map';
+webpackConfig.devtool = 'source-map';
 webpackConfig.plugins.push(
   new webpack.DefinePlugin({
     __DEVELOPMENT__: true,

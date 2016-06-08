@@ -4,12 +4,12 @@
   "description": "",
   "scripts": {
     "clean": "rm -rf dist",
-    "start": "webpack-dev-server --config webpack.config.js --devtool eval --colors --hot --progress --history-api-fallback  --devtool --port 3000 --inline --host 0.0.0.0",
+    "start": "node stub/api.js & webpack-dev-server --config webpack.config.js --colors --hot --progress --history-api-fallback --port 3000 --inline --host 0.0.0.0",
     "start-prod": "webpack-dev-server --config webpack.config.prod.js --colors --hot --progress --history-api-fallback --port 3000 --inline --host 0.0.0.0",
     "test": "node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha --report lcovonly specs/.setup.js specs/**/*.spec.js",
     "report-coverage": "cat ./coverage/lcov.info | node_modules/coveralls/bin/coveralls.js",
     "lint": "eslint ./src/**/*.js",
-    "build": "npm run lint && npm run test && webpack"
+    "build": "node ./stub/api.js stub-server && npm run lint && npm run test && webpack && pkill -f stub-server"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
   "dependencies": {
     "body-parser": "^1.15.1",
     "bootstrap": "^3.3.6",
+    "cors": "^2.7.1",
     "express": "^4.13.4",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.4",

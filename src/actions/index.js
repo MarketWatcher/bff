@@ -13,7 +13,7 @@ export function login(email, password) {
 	if(valid && correctCredentials) {
 		return {
 			type : 'LOGIN_SUCCESSFUL',
-			user: {email : email, loggedIn: true}
+			user: {email : email, loggedIn: true, id: 1}
 		};
 	} else {
 		return {
