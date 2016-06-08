@@ -15,8 +15,7 @@ app.get('/alerts/owner_id/:id', function (req, res) {
 });
 
 app.get('/alerts/id/:alarmId', function (req, res) {
-  let alarms = alerts.filter(a => a.id == req.params.alarmId);
-  res.send(alarms[0]);
+  res.send(alerts[req.params.alarmId - 1]);
 });
 
 app.post('/alerts', function(req, res){

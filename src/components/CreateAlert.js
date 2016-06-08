@@ -7,13 +7,12 @@ import { push } from 'react-router-redux';
 export class CreateAlert extends Component {
     state = {
       alert: {
-        ID: 28,
         name: '',
         ownerID: 1,
         requiredCriteria: '',
         niceTohaveCriteria: '',
         excludedCriteria: '',
-        threshold: 0, 
+        threshold: 0,
         status: 1
       }
     }
@@ -50,29 +49,29 @@ export class CreateAlert extends Component {
             <div className="col-xs-6">
                 <div id="req" className="row form-group" >
                   <label className="col-xs-3">Required: </label>
-                  <input id="requiredinput" 
-                         required="true" 
-                         className="col-xs-9" 
+                  <input id="requiredinput"
+                         required="true"
+                         className="col-xs-9"
                          type="text"
-                         onChange={this.handleInputChange.bind(this.state.alert, 'requiredCriteria')}  
+                         onChange={this.handleInputChange.bind(this.state.alert, 'requiredCriteria')}
                          value={this.state.alert.requiredCriteria}  />
                 </div>
 
                 <div id="niceToHave form-group" className="row">
                   <label className="col-xs-3 form-group">Nice to have: </label>
-                  <input id="requiredinput" 
-                         className="col-xs-9" 
+                  <input id="requiredinput"
+                         className="col-xs-9"
                          type="text"
-                         onChange={this.handleInputChange.bind(this.state.alert, 'niceTohaveCriteria')}  
+                         onChange={this.handleInputChange.bind(this.state.alert, 'niceTohaveCriteria')}
                          value={this.state.alert.niceTohaveCriteria}  />
                 </div>
 
                 <div id="excludedInput form-group" className="row">
                   <label className="col-xs-3 form-group">Excluded: </label>
-                  <input id="excludedinput" 
-                         type="text" 
-                         className="col-xs-9"                                    
-                         onChange={this.handleInputChange.bind(this.state.alert, 'excludedCriteria')}  
+                  <input id="excludedinput"
+                         type="text"
+                         className="col-xs-9"
+                         onChange={this.handleInputChange.bind(this.state.alert, 'excludedCriteria')}
                          value={this.state.alert.excludedCriteria}  />
                 </div>
               </div>
@@ -80,10 +79,10 @@ export class CreateAlert extends Component {
 
             <div id="alert-threshold" className="row form-group" >
               <label htmlFor="threshold" className="col-xs-3">Threshold: </label>
-              <input id="threshold" 
-                     type="numeric" 
-                     className="col-xs-9" 
-                     onChange={this.handleInputChange.bind(this.state.alert, 'threshold')}  
+              <input id="threshold"
+                     type="numeric"
+                     className="col-xs-9"
+                     onChange={this.handleInputChange.bind(this.state.alert, 'threshold')}
                      value={this.state.alert.threshold}  />
             </div>
 
