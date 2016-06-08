@@ -3,8 +3,8 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var app = express();
 
-let alerts = [];
-let idCount = 1;
+var alerts = [];
+var idCount = 1;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
