@@ -11,9 +11,8 @@ import Footer from './Footer';
 export class App extends Component {
     render() {
         return (
-            <div>
+            <div className="main-panel">
                 <HeaderBar user={this.props.user}/>
-                <div className="navbar-placeholder"/>
                     {this.props.children}
                 <Footer />
             </div>
