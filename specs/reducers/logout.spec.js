@@ -3,7 +3,7 @@ import { userReducer } from '../../src/reducers';
 import { expect } from 'chai';
 
 describe("Logout reducer", () => {
-  
+
   it("should change the state as not loggedIn", function() {
 
   	const sampleUserState = {"email":"sample@example.com", "loggedIn": true};
