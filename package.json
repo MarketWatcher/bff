@@ -26,6 +26,7 @@
     "bootstrap": "^3.3.6",
     "cors": "^2.7.1",
     "express": "^4.13.4",
+    "font-awesome": "^4.6.3",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.2",

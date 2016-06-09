@@ -9,6 +9,6 @@ describe('LoginForm component', () => {
 
   it('contains email address input', () => {
     const wrapper = mount(<LoginForm user={user}/>);
-    expect(wrapper.find('#loginEmailAddress').name()).to.equal('input');
+    expect(wrapper.find('#email').name()).to.equal('input');
   });
 });

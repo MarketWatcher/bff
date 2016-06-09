@@ -1,34 +1,33 @@
-.navbar-placeholder {
-  height: 50px;
-  margin-bottom: 20px;
+.landing-background {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 74px;
+    left: 0;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  height: 60px;
-  background-color: #f5f5f5;
+.main-panel {
+    width: 100%;
 }
 
-body > .container {
-  padding: 60px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
+.stretch {
+    width:100%;
+    height:100%;
 }
 
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
+.header-underline {
+    border-bottom: 1px solid;
+    padding-bottom: 20px !important;
 }
 
-.alert-detail.panel-default {
-  margin: 0 40px 20px 40px;
+div.spacer-50 {
+    min-height:50px;
 }
 
-.panel-heading {
-  font-weight: bold;
-  font-size: 18px;
+footer {
+    background-color: #68B3C8;
+}
+
+.opacity-95 {
+    opacity: .95;
 }
