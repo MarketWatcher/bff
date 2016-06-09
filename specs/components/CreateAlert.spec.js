@@ -14,12 +14,12 @@ describe('CreateAlert component', () => {
 
   it('contains alert label', () => {
     const wrapper = shallow(<CreateAlert alert={alert}/>);
-    expect(wrapper.find('#alertname').name()).to.equal('div');
+    expect(wrapper.find('#alert-name').name()).to.equal('div');
   });
 
   it('contains alert criteria', () => {
     const wrapper = shallow(<CreateAlert alert={alert}/>);
-    expect(wrapper.find('#alertcriteria').name()).to.equal('div');
+    expect(wrapper.find('#alert-criteria').name()).to.equal('div');
   });
 
   it('contains alert threshold', () => {
@@ -29,7 +29,7 @@ describe('CreateAlert component', () => {
 
   it('contains cancel button', () => {
     const wrapper = shallow(<CreateAlert alert={alert}/>);
-    var cancelButton = wrapper.find('#cancelbutton');
+    var cancelButton = wrapper.find('#cancel-button');
     expect(cancelButton.name()).to.equal('button');
   });
 
