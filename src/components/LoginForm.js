@@ -31,12 +31,12 @@ export class LoginForm extends Component {
                                 <span>{this.props.user.errorMessage}</span>
                             </div> : ''}
                         <div className="form-group">
-                            <ControlLabel>Email address</ControlLabel>
-                            <FormControl placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
+                            <label htmlFor="password">Email Address</label>
+                            <input type="email" className="form-control" id="email" placeholder="Enter E-mail" id="email" value={this.state.password}  onChange={this.handleInputChange.bind(this, 'email')}/>
                         </div>
                         <div className="form-group">
-                            <label htmlFor="exampleInputPassword1">Password</label>
-                            <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, 'password')}/>
+                            <label htmlFor="password">Password</label>
+                            <input type="password" className="form-control" id="password" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, 'password')}/>
                         </div>
 
                         <button type="submit" className="btn btn-default" onClick={this.handleSubmit}>Submit</button>
