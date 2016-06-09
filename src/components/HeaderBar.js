@@ -45,7 +45,7 @@ function renderLogoutButton(header) {
     return header.props.user.loggedIn ?
         <NavItem eventKey={2}>
             <div>
-                <button id="logout-button" onClick={header.logoutClicked}>Log out</button>
+                <a href="#" id="logout-button" onClick={header.logoutClicked}><i className="ti-user"></i> Log out</a>
 			</div>
         </NavItem> : '';
 }
