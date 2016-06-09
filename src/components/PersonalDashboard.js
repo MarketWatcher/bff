@@ -74,7 +74,7 @@ export default class PersonalDashboard extends Component {
 
                         <div className="card">
                             <div className="content">
-                                Noticationnnnn
+                                Notications
 
                             </div>
                         </div>
