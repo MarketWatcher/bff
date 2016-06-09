@@ -58,3 +58,11 @@ export function cancel() {
         dispatch(push('/dashboard'));
     };
 }
+
+export function resetAlertState() {
+    return dispatch => {
+        dispatch({
+            type: 'RESET_ALERT_STATE'
+        });
+    };
+}

@@ -43,18 +43,18 @@ export class CreateAlert extends Component {
         }
             <h2 className="title">Create Alert</h2>
 
-        <div id="alertname" className="row form-group" >
-          <label htmlFor="alertnameinput" className="col-xs-3">Alert Name: </label>
-          <input id="alertnameinput" required="true" maxLength="32" type="text" className="col-xs-6"
+        <div id="alert-name" className="row form-group" >
+          <label htmlFor="alert-name-input" className="col-xs-3">Alert Name: </label>
+          <input id="alert-name-input" required="true" maxLength="32" type="text" className="col-xs-6"
                     onChange={this.handleInputChange.bind(this.state.alert, 'name')} value={this.state.alert.name}  />
         </div>
 
-        <div id="alertcriteria" className="row form-group">
+        <div id="alert-criteria" className="row form-group">
             <label className="col-xs-3">Alert Criteria: </label>
             <div className="col-xs-6">
                 <div id="req" className="form-group row" >
                   <label className="col-xs-3">Required: </label>
-                  <input id="requiredinput"
+                  <input id="required-input"
                          required="true"
                          className="col-xs-9"
                          type="text"
@@ -62,18 +62,18 @@ export class CreateAlert extends Component {
                          value={this.state.alert.requiredCriteria}  />
                 </div>
 
-                <div id="niceToHave" className="form-group row">
+                <div id="nice-to-have" className="form-group row">
                   <label className="col-xs-3">Nice to have: </label>
-                  <input id="requiredinput"
+                  <input id="required-input"
                          className="col-xs-9"
                          type="text"
                          onChange={this.handleInputChange.bind(this.state.alert, 'niceTohaveCriteria')}
                          value={this.state.alert.niceTohaveCriteria}  />
                 </div>
 
-                <div id="excludedInput" className="form-group row">
+                <div id="excluded-input" className="form-group row">
                   <label className="col-xs-3">Excluded: </label>
-                  <input id="excludedinput"
+                  <input id="excluded-input"
                          type="text"
                          className="col-xs-9"
                          onChange={this.handleInputChange.bind(this.state.alert, 'excludedCriteria')}
@@ -91,12 +91,12 @@ export class CreateAlert extends Component {
                      value={this.state.alert.threshold}  />
             </div>
 
-            <div id="buttonbar" className="row form-group">
+            <div id="button-bar" className="row form-group">
               <div className="col-xs-3 pull-right">
-                <button id="savebutton" className="btn-success" onClick={this.handleSave}>Save</button>
+                <button id="save-button" className="btn-success" onClick={this.handleSave}>Save</button>
               </div>
               <div className="col-xs-3 pull-right">
-                <button id="cancelbutton" className="btn-default pull-right" onClick={this.handleCancel}>Cancel</button>
+                <button id="cancel-button" className="btn-default pull-right" onClick={this.handleCancel}>Cancel</button>
               </div>
             </div>
 
@@ -104,6 +104,10 @@ export class CreateAlert extends Component {
         </div>
 
         );
+    }
+
+    componentDidMount() {
+        this.props.actions.resetAlertState();
     }
 }
 

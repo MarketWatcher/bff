@@ -29,14 +29,16 @@ export default combineReducers({
     newAlert: (state = {}, action) => {
         switch(action.type) {
             case 'CREATE_ALERT_SUCCESSFUL':
-                state = {alert: action.alert, messageVisible: true, messageStyle: "success", message: "Alert created!"};
+                state = { alert: action.alert, messageVisible: true, messageStyle: "success", message: "Alert created!"};
                 return state;
             case 'CREATE_ALERT_UNSUCCESSFUL':
-                state = {alert: action.alert, messageVisible: true, messageStyle: "danger", message: action.error.message};
+                state = { alert: action.alert, messageVisible: true, messageStyle: "danger", message: action.error.message};
                 return state;
             case 'CREATE_ALERT_CANCEL':
                 state = { messageVisible: false, messageStyle: ""};
                 return state;
+            case 'RESET_ALERT_STATE':
+                state = { alert: {}, messageVisible: false, messageStyle: "", message: ""};
             default:
                 return state;
         }
