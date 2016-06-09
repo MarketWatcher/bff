@@ -32,7 +32,7 @@ export class LoginForm extends Component {
                             </div> : ''}
                         <div className="form-group">
                             <ControlLabel>Email address</ControlLabel>
-                            <FormControl placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
+                            <FormControl id="loginEmailAddress" placeholder="Enter email" value={this.state.email} onChange={this.handleInputChange.bind(this, 'email')}/>
                         </div>
                         <div className="form-group">
                             <label htmlFor="exampleInputPassword1">Password</label>
