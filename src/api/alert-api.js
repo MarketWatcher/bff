@@ -24,7 +24,7 @@ export default class AlertApi {
                 "nice_to_have_criteria" : newAlert.niceTohaveCriteria,
                 "excluded_criteria" : newAlert.excludedCriteria,
                 "threshold" : parseInt(newAlert.threshold, 10),
-                "status" : 1 
+                "status" : 1
             };
         fetch(`http://localhost:8000/alerts`, {
             method: 'POST',
@@ -34,7 +34,14 @@ export default class AlertApi {
             },
             body: JSON.stringify(convertedAlert)
         })
-        .then(res => res.json())
+        .then(res => {
+            if (res.status != 200) {
+                return res.json().then(json => {
+                    throw new Error(json.alert_error_message);
+                });
+            }
+            return res;
+        })
         .then(json => cb(json))
         .catch(ex => err(ex));
     }

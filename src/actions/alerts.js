@@ -1,4 +1,5 @@
 import AlertApi from '../api/alert-api';
+import { push } from 'react-router-redux';
 
 export function listAlerts(ownerId) {
     return dispatch => {
@@ -39,11 +40,21 @@ export function createAlert(newAlert) {
                 type: 'CREATE_ALERT_SUCCESSFUL',
                 alert: alert
             });
+            dispatch(push('/dashboard'));
         }, (error) => {
             dispatch({
                 type: 'CREATE_ALERT_UNSUCCESSFUL',
                 error: error
             });
         });
+    };
+}
+
+export function cancel() {
+    return dispatch => {
+        dispatch({
+            type: 'CREATE_ALERT_CANCEL'
+        });
+        dispatch(push('/dashboard'));
     };
 }
