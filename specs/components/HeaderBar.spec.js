@@ -11,17 +11,17 @@ describe("Header Bar component", () => {
 
   it("contains logout button if loggedIn", function() {
 
-  	const sampleUser = {"email":"sample@example.com", "loggedIn": true}
+  	const sampleUser = {"email":"sample@example.com", "loggedIn": true};
 
     const wrapper = mount(<HeaderBar user={sampleUser} />);
-    expect(wrapper.find('#logout-button').name()).to.equal('button');
+    expect(wrapper.find('#logout').name()).to.equal('a');
   });
 
   it("doesnt contain logout link if not loggedIn", function() {
 
-  	const sampleUser = {"email":"sample@example.com", "loggedIn": false}
+  	const sampleUser = {"email":"sample@example.com", "loggedIn": false};
 
     const wrapper = mount(<HeaderBar user={sampleUser} />);
-    expect(wrapper.find('#logout-button')).to.have.length(0);
+    expect(wrapper.find('#logout')).to.have.length(0);
   });
 });
