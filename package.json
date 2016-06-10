@@ -55,6 +55,7 @@
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
     "file-loader": "^0.8.5",
+    "git-sha-webpack-plugin": "0.0.6",
     "html-webpack-plugin": "^1.7.0",
     "istanbul": "^1.0.0-alpha",
     "jsdom": "^9.2.0",
