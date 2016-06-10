@@ -6,7 +6,8 @@
     },
     "extends": "eslint:recommended",
     "plugins": [
-        "react"
+        "react",
+        "import"
     ],
     "rules": {
         "indent": [
