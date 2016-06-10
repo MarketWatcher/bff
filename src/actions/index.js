@@ -7,7 +7,7 @@ let users = {
 };
 
 export function login(email, password) {
-	const valid = email != '' || password != '';
+	const valid = email && password;
 	const correctCredentials = users[email] == password;
 
 	if(valid && correctCredentials) {
@@ -25,7 +25,7 @@ export function login(email, password) {
 
 export function dispatchLogin(email, password) {
 	return dispatch => {
-        dispatch(login());
+        dispatch(login(email, password));
         dispatch(push('/dashboard'));
     };
 }

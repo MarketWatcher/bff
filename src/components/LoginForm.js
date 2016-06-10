@@ -43,7 +43,7 @@ export class LoginForm extends Component {
                             </div>
                         </div></div>
                         <div className="row"><div className="col-md-12">
-                            <button type="submit" className="btn btn-info btn-fill btn-wd pull-right" onClick={this.handleSubmit}>Submit</button>
+                            <button type="submit" className="btn btn-info btn-fill btn-wd pull-right" onClick={this.handleSubmit.bind(this)}>Submit</button>
                         </div></div>
                     </form>
                 </div>
