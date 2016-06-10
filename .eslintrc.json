@@ -1,5 +1,10 @@
 {
     "parser": "babel-eslint",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
     "env": {
         "browser": true,
         "es6": true
@@ -26,6 +31,8 @@
             "error",
             "never"
         ],
-        "no-unused-vars": 0
+        "no-unused-vars": [
+            "warn"
+        ]
     }
 }
