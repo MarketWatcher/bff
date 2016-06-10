@@ -21,7 +21,8 @@ module.exports = {
             filename : "index.html"
         }),
         new GitSHAPlugin({
-            shaLength: 40
+            shaLength: 40,
+            useHead: true
         })
     ],
     module : {
