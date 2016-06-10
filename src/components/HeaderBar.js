@@ -1,44 +1,42 @@
-import React, { Component } from 'react';
-import * as actionCreators  from "../actions";
-import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
-
-import { Button, Navbar, Nav, NavItem } from 'react-bootstrap';
-import { Link } from 'react-router';
+import React, { Component } from "react"
+import * as actionCreators  from "../actions"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import { Button, Navbar, Nav, NavItem } from "react-bootstrap"
+import { Link } from "react-router"
 
 export class HeaderBar extends Component {
 
-	logoutClicked = () => {
-		this.props.actions.dispatchLogout();
-	}
+    logoutClicked = () => {
+        this.props.actions.dispatchLogout()
+    }
 
-	render() {
-		return (
+    render() {
+        return (
             <Navbar>
-        		<Navbar.Header>
+                <Navbar.Header>
                     <Navbar.Brand>
-        				<Link className="navbar-brand" to="/">MARKET WATCHER</Link>
-        		    </Navbar.Brand>
-        	    </Navbar.Header>
-        	    <Navbar.Collapse>
-        			<Nav pullRight>
-        				{renderWelcomeMessage(this)}
-        				{renderLogoutButton(this)}
-        	      	</Nav>
-              	</Navbar.Collapse>
-                </Navbar>
-
-		);
-	}
+                        <Link className="navbar-brand" to="/">MARKET WATCHER</Link>
+                    </Navbar.Brand>
+                </Navbar.Header>
+                <Navbar.Collapse>
+                    <Nav pullRight>
+                        {renderWelcomeMessage(this)}
+                        {renderLogoutButton(this)}
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        )
+    }
 }
 
 function renderWelcomeMessage(header) {
-	return header.props.user.loggedIn ?
-		<NavItem eventKey={1}>
-			<div>
-				 Welcome <b>{header.props.user.email}</b>
-			</div>
-		</NavItem> : '';
+    return header.props.user.loggedIn ?
+        <NavItem eventKey={1}>
+            <div>
+                 Welcome <b>{header.props.user.email}</b>
+            </div>
+        </NavItem> : ""
 }
 
 function renderLogoutButton(header) {
@@ -46,16 +44,16 @@ function renderLogoutButton(header) {
         <NavItem eventKey={2}>
             <div>
                 <a href="#" id="logout" onClick={header.logoutClicked}><i className="ti-user"></i> Log out</a>
-			</div>
-        </NavItem> : '';
+       </div>
+        </NavItem> : ""
 }
 
 const mapStateToProps = (state) => ({
-  user: state.user
-});
+    user: state.user
+})
 
 const mapDispatchToProps = (dispatch) => ({
-  actions : bindActionCreators(actionCreators, dispatch)
-});
+    actions : bindActionCreators(actionCreators, dispatch)
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderBar);
+export default connect(mapStateToProps, mapDispatchToProps)(HeaderBar)

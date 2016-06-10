@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import LoginForm from './LoginForm';
-import backgroundImage from '../assets/img/background-landing.png';
+import React, { Component } from "react"
+import LoginForm from "./LoginForm"
+import backgroundImage from "../assets/img/background-landing.png"
 
 export default class Landing extends Component {
     render() {
@@ -22,6 +22,6 @@ export default class Landing extends Component {
                     </div>
                 </div>
             </div>
-        );
+        )
     }
 }

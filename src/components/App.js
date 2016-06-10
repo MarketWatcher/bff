@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
-
-import * as actionCreators  from "../actions";
-import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
-
-import HeaderBar from './HeaderBar';
-import Footer from './Footer';
-
+import React, { Component } from "react"
+import * as actionCreators  from "../actions"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import HeaderBar from "./HeaderBar"
+import Footer from "./Footer"
 
 export class App extends Component {
     render() {
@@ -16,12 +13,12 @@ export class App extends Component {
                     {this.props.children}
                 <Footer />
             </div>
-        );
+        )
     }
-};
+}
 
 const mapStateToProps = (state) => ({
     user: state.user
-});
+})
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(App)

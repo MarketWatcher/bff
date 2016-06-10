@@ -1,37 +1,37 @@
-import React, { Component } from 'react';
-import * as actionCreators  from "../actions/alerts";
-import { connect } from "react-redux";
-import { bindActionCreators } from 'redux';
-import { push } from 'react-router-redux';
-import { Alert } from 'react-bootstrap';
+import React, { Component } from "react"
+import * as actionCreators  from "../actions/alerts"
+import { connect } from "react-redux"
+import { bindActionCreators } from "redux"
+import { push } from "react-router-redux"
+import { Alert } from "react-bootstrap"
 
 export class CreateAlert extends Component {
     state = {
-      alert: {
-        name: '',
-        ownerID: 1,
-        requiredCriteria: '',
-        niceTohaveCriteria: '',
-        excludedCriteria: '',
-        threshold: 0,
-        status: 1
-    }
+        alert: {
+            name: "",
+            ownerID: 1,
+            requiredCriteria: "",
+            niceTohaveCriteria: "",
+            excludedCriteria: "",
+            threshold: 0,
+            status: 1
+        }
     }
 
     handleCancel = (e) => {
-        e.preventDefault();
-        this.props.actions.cancel();
+        e.preventDefault()
+        this.props.actions.cancel()
     }
 
     handleSave = (e) => {
-        e.preventDefault();
-        this.props.actions.createAlert(this.state.alert);
+        e.preventDefault()
+        this.props.actions.createAlert(this.state.alert)
     }
 
     handleInputChange = (field, e) => {
-        var newState = this.state;
-        newState.alert[field] = e.target.value;
-        this.setState(newState);
+        var newState = this.state
+        newState.alert[field] = e.target.value
+        this.setState(newState)
     }
 
     render() {
@@ -46,7 +46,7 @@ export class CreateAlert extends Component {
         <div id="alert-name" className="row form-group" >
           <label htmlFor="alert-name-input" className="col-xs-3">Alert Name: </label>
           <input id="alert-name-input" required="true" maxLength="32" type="text" className="col-xs-6"
-                    onChange={this.handleInputChange.bind(this.state.alert, 'name')} value={this.state.alert.name}  />
+                    onChange={this.handleInputChange.bind(this.state.alert, "name")} value={this.state.alert.name}  />
         </div>
 
         <div id="alert-criteria" className="row form-group">
@@ -58,7 +58,7 @@ export class CreateAlert extends Component {
                          required="true"
                          className="col-xs-9"
                          type="text"
-                         onChange={this.handleInputChange.bind(this.state.alert, 'requiredCriteria')}
+                         onChange={this.handleInputChange.bind(this.state.alert, "requiredCriteria")}
                          value={this.state.alert.requiredCriteria}  />
                 </div>
 
@@ -67,7 +67,7 @@ export class CreateAlert extends Component {
                   <input id="required-input"
                          className="col-xs-9"
                          type="text"
-                         onChange={this.handleInputChange.bind(this.state.alert, 'niceTohaveCriteria')}
+                         onChange={this.handleInputChange.bind(this.state.alert, "niceTohaveCriteria")}
                          value={this.state.alert.niceTohaveCriteria}  />
                 </div>
 
@@ -76,7 +76,7 @@ export class CreateAlert extends Component {
                   <input id="excluded-input"
                          type="text"
                          className="col-xs-9"
-                         onChange={this.handleInputChange.bind(this.state.alert, 'excludedCriteria')}
+                         onChange={this.handleInputChange.bind(this.state.alert, "excludedCriteria")}
                          value={this.state.alert.excludedCriteria}  />
                 </div>
               </div>
@@ -87,7 +87,7 @@ export class CreateAlert extends Component {
               <input id="threshold"
                      type="numeric"
                      className="col-xs-2"
-                     onChange={this.handleInputChange.bind(this.state.alert, 'threshold')}
+                     onChange={this.handleInputChange.bind(this.state.alert, "threshold")}
                      value={this.state.alert.threshold}  />
             </div>
 
@@ -100,23 +100,22 @@ export class CreateAlert extends Component {
               </div>
             </div>
 
-
         </div>
 
-        );
+        )
     }
 
     componentDidMount() {
-        this.props.actions.resetAlertState();
+        this.props.actions.resetAlertState()
     }
 }
 
 const mapStateToProps = (globalState) => ({
-  alert: globalState.newAlert
-});
+    alert: globalState.newAlert
+})
 
 const mapDispatchToProps = (dispatch) => ({
-  actions : bindActionCreators(actionCreators, dispatch)
-});
+    actions : bindActionCreators(actionCreators, dispatch)
+})
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateAlert);
+export default connect(mapStateToProps, mapDispatchToProps)(CreateAlert)
