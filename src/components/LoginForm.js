@@ -5,7 +5,7 @@ import { bindActionCreators } from "redux"
 import { FormControl, ControlLabel } from "react-bootstrap"
 
 export class LoginForm extends Component {
-    state = {email: ", password: "}
+    state = {email: "", password: ""}
 
     handleSubmit = (e) => {
         e.preventDefault()

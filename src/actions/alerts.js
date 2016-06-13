@@ -10,7 +10,8 @@ export function listAlerts(ownerId) {
             })
         }, (error) => {
             dispatch({
-                type: "ALERTS_NOT_FOUND"
+                type: "ALERTS_NOT_FOUND",
+                error: error
             })
         })
     }
