@@ -25,6 +25,7 @@ let history = syncHistoryWithStore(browserHistory, store)
 const routerComponent = (
   <Router history={history}>
       <Route path="/" component={App}>
+          <IndexRedirect to='/dashboard'/>
           <Route path="landing" component={Public(Landing)} />
           <Route path="dashboard" component={Authenticated(PersonalDashboard)} />
           <Route path="createalert" component={Authenticated(CreateAlert)}/>
