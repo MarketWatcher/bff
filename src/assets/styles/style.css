@@ -1,3 +1,49 @@
+/* Utils */
+
+div.spacer-50 {
+    min-height:50px;
+}
+
+div.spacer-15 {
+    min-height:15px;
+}
+
+.opacity-95 {
+    opacity: .95;
+}
+
+/* Trend List */
+
+a .trend-tile .card:hover {
+    box-shadow: 0 18px 18px rgba(204, 197, 185, 0.5);
+}
+
+.trend-tile .card {
+    height: 210px;
+}
+
+.trend-icon {
+    font-size: 7em;
+    display: inline;
+}
+
+/* Notification List */
+
+.notification-list {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.notification-list table {
+    margin-bottom: none
+}
+
+.notification-list tr:first-child td {
+    border-top: none
+}
+
+/* Landing Page Background */
+
 .landing-background {
     height: 100vh;
     width: 100%;
@@ -15,19 +61,19 @@
     height:100%;
 }
 
-.header-underline {
+/* Paper dashboard theme card class customizations */
+
+.header-underlined {
     border-bottom: 1px solid;
     padding-bottom: 20px !important;
 }
 
-div.spacer-50 {
-    min-height:50px;
+.card-transparent {
+    background: transparent;
+    box-shadow: none
 }
 
+/* Footer */
 footer {
     background-color: #68B3C8;
-}
-
-.opacity-95 {
-    opacity: .95;
 }

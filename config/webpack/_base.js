@@ -1,9 +1,8 @@
-var HtmlWebpackPlugin = require("html-webpack-plugin")
-var GitSHAPlugin = require("git-sha-webpack-plugin")
-var path = require("path")
-var webpack = require("webpack")
+import HtmlWebpackPlugin from "html-webpack-plugin"
+import GitSHAPlugin from "git-sha-webpack-plugin"
+import path from "path"
 
-module.exports = {
+export default {
     name: "market-watcher",
     entry: {
         app: ["./src/index.js"]

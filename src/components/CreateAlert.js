@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import * as actionCreators  from "../actions/alerts"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { push } from "react-router-redux"
 import { Alert } from "react-bootstrap"
 
 export class CreateAlert extends Component {
@@ -16,6 +15,10 @@ export class CreateAlert extends Component {
             threshold: 0,
             status: 1
         }
+    }
+
+    componentWillMount() {
+        this.props.actions.resetAlertState()
     }
 
     handleCancel = (e) => {
@@ -104,14 +107,11 @@ export class CreateAlert extends Component {
 
         )
     }
-
-    componentDidMount() {
-        this.props.actions.resetAlertState()
-    }
 }
 
-const mapStateToProps = (globalState) => ({
-    alert: globalState.newAlert
+const mapStateToProps = (state) => ({
+    alert: state.newAlert,
+    user: state.user
 })
 
 const mapDispatchToProps = (dispatch) => ({

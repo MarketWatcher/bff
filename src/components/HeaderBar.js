@@ -2,13 +2,31 @@ import React, { Component } from "react"
 import * as actionCreators  from "../actions"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Button, Navbar, Nav, NavItem } from "react-bootstrap"
+import { Navbar, Nav, NavItem } from "react-bootstrap"
 import { Link } from "react-router"
 
 export class HeaderBar extends Component {
 
     logoutClicked = () => {
         this.props.actions.dispatchLogout()
+    }
+
+    renderWelcomeMessage(header) {
+        return header.props.user.loggedIn ?
+            <NavItem eventKey={1}>
+                <div>
+                     Welcome <b>{header.props.user.email}</b>
+                </div>
+            </NavItem> : ""
+    }
+
+    renderLogoutButton(header) {
+        return header.props.user.loggedIn ?
+            <NavItem eventKey={2}>
+                <div>
+                    <a href="#" id="logout" onClick={header.logoutClicked}><i className="ti-user"></i> Log out</a>
+                </div>
+            </NavItem> : ""
     }
 
     render() {
@@ -21,31 +39,13 @@ export class HeaderBar extends Component {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav pullRight>
-                        {renderWelcomeMessage(this)}
-                        {renderLogoutButton(this)}
+                        {this.renderWelcomeMessage(this)}
+                        {this.renderLogoutButton(this)}
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
         )
     }
-}
-
-function renderWelcomeMessage(header) {
-    return header.props.user.loggedIn ?
-        <NavItem eventKey={1}>
-            <div>
-                 Welcome <b>{header.props.user.email}</b>
-            </div>
-        </NavItem> : ""
-}
-
-function renderLogoutButton(header) {
-    return header.props.user.loggedIn ?
-        <NavItem eventKey={2}>
-            <div>
-                <a href="#" id="logout" onClick={header.logoutClicked}><i className="ti-user"></i> Log out</a>
-            </div>
-        </NavItem> : ""
 }
 
 const mapStateToProps = (state) => ({

@@ -1,5 +1,5 @@
 import webpackConfig from "./_base"
-var webpack = require("webpack")
+import webpack from "webpack"
 
 webpackConfig.devtool = "source-map"
 webpackConfig.plugins.push(

@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import * as actionCreators  from "../actions"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { FormControl, ControlLabel } from "react-bootstrap"
 
 export class LoginForm extends Component {
     state = {email: "", password: ""}
@@ -21,7 +20,7 @@ export class LoginForm extends Component {
     render() {
         return (
             <div className="card opacity-95">
-                <div className="header-underline header ">
+                <div className="header header-underlined ">
                     <h4 className="title">Login</h4>
                 </div>
                 <div className="content">

@@ -8,6 +8,7 @@ import {Authenticated, Public} from "./wrappers/auth"
 import thunk from "redux-thunk"
 import reducers from "./reducers"
 import "bootstrap/dist/css/bootstrap.min.css"
+import "font-awesome/css/font-awesome.css"
 import "./assets/styles/animate.min.css"
 import "./assets/styles/paper-dashboard.css"
 import "./assets/styles/style.css"
@@ -26,10 +27,10 @@ const routerComponent = (
   <Router history={history}>
       <Route path="/" component={App}>
           <IndexRedirect to='/dashboard'/>
-          <Route path="landing" component={Public(Landing)} />
-          <Route path="dashboard" component={Authenticated(PersonalDashboard)} />
-          <Route path="alerts/new" component={Authenticated(CreateAlert)}/>
-          <Route path="alerts/id/:id" component={Authenticated(Alert)}/>
+          <Route path="/landing" component={Public(Landing)} />
+          <Route path="/dashboard" component={Authenticated(PersonalDashboard)} />
+          <Route path="/alerts/new" component={Authenticated(CreateAlert)}/>
+          <Route path="/alerts/id/:id" component={Authenticated(Alert)}/>
       </Route>
   </Router>
 )
