@@ -24,6 +24,7 @@ export default class AlertApi {
             "threshold" : parseInt(newAlert.threshold, 10),
             "status" : 1
         }
+
         fetch("http://localhost:8000/alerts", {
             method: "POST",
             headers: {

@@ -2,7 +2,6 @@ import React, { Component } from "react"
 import * as actionCreators  from "../actions"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Navbar, Nav, NavItem } from "react-bootstrap"
 import { Link } from "react-router"
 
 export class HeaderBar extends Component {
@@ -13,37 +12,39 @@ export class HeaderBar extends Component {
 
     renderWelcomeMessage(header) {
         return header.props.user.loggedIn ?
-            <NavItem eventKey={1}>
-                <div>
-                     Welcome <b>{header.props.user.email}</b>
-                </div>
-            </NavItem> : ""
+            <li>
+                <a className="disabled">
+                    <p><i className="fa fa-user"></i> Logged in as <b>{header.props.user.email}</b></p>
+                </a>
+            </li> : ""
+
     }
 
     renderLogoutButton(header) {
         return header.props.user.loggedIn ?
-            <NavItem eventKey={2}>
-                <div>
-                    <a href="#" id="logout" onClick={header.logoutClicked}><i className="ti-user"></i> Log out</a>
-                </div>
-            </NavItem> : ""
+            <li>
+                <a href="#" id="logout" onClick={header.logoutClicked}>
+                    <p><i className="fa fa-sign-out"></i> Log Out</p>
+                </a>
+            </li> : ""
     }
 
     render() {
         return (
-            <Navbar>
-                <Navbar.Header>
-                    <Navbar.Brand>
+            <nav className="navbar navbar-default">
+                <div className="container">
+                    <div className="navbar-header">
                         <Link className="navbar-brand" to="/">MARKET WATCHER</Link>
-                    </Navbar.Brand>
-                </Navbar.Header>
-                <Navbar.Collapse>
-                    <Nav pullRight>
-                        {this.renderWelcomeMessage(this)}
-                        {this.renderLogoutButton(this)}
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+                    </div>
+                    <div className="collapse navbar-collapse">
+                        <ul className="nav navbar-nav navbar-right">
+                            {this.renderWelcomeMessage(this)}
+                            {this.renderLogoutButton(this)}
+                        </ul>
+
+                    </div>
+                </div>
+            </nav>
         )
     }
 }

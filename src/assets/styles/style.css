@@ -27,6 +27,10 @@ a .trend-tile .card:hover {
     display: inline;
 }
 
+.icon-create-alert {
+    color: #888;
+}
+
 /* Notification List */
 
 .notification-list {

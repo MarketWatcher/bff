@@ -9,7 +9,7 @@ export default class Trends extends Component {
             <div className="row">
                 <DashboardTile href="/alerts/new" title="Create Alert">
                     <div className="text-center">
-                        <i className="fa fa-plus-square-o fa-5x trend-icon"></i>
+                        <i className="fa fa-plus-square-o fa-5x trend-icon icon-create-alert"></i>
                     </div>
                 </DashboardTile>
 
@@ -18,7 +18,7 @@ export default class Trends extends Component {
                 <Trend trend={{delta: 2, alert: {title: "Alert 3", id: 3}}}/>
                 <Trend trend={{delta: 4, alert: {title: "Alert 4", id: 4}}}/>
                 <Trend trend={{delta: -5, alert: {title: "Alert 5", id: 5}}}/>
-                <Trend trend={{delta: 0, alert: {title: "Alert 6", id: 6}}}/>
+                <Trend trend={{alert: {title: "Alert 6", id: 6}}}/>
 
                 {this.props.trends &&
                     this.props.trends.map((trend) => {

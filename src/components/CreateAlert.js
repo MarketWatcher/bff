@@ -17,7 +17,7 @@ export class CreateAlert extends Component {
         }
     }
 
-    componentWillMount() {
+    componentDidMount() {
         this.props.actions.resetAlertState()
     }
 
