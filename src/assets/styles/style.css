@@ -23,8 +23,24 @@ a .trend-tile .card:hover {
 }
 
 .trend-icon {
-    font-size: 7em;
+    font-size: 6em;
     display: inline;
+}
+
+.trend-detail {
+    text-align: right;
+    margin-top: 50%;
+}
+
+@media (max-width: 500px){
+    .trend-icon {
+        font-size: 2em;
+        display: inline;
+    }
+
+    .trend-detail {
+        display: none;
+    }
 }
 
 .icon-create-alert {
