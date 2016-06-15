@@ -55,7 +55,7 @@ export class CreateAlert extends Component {
         <div id="alert-criteria" className="row form-group">
             <label className="col-xs-3">Alert Criteria: </label>
             <div className="col-xs-6">
-                <div id="req" className="form-group row" >
+                <div id="required" className="form-group row" >
                   <label className="col-xs-3">Required: </label>
                   <input id="required-input"
                          required="true"
@@ -67,7 +67,7 @@ export class CreateAlert extends Component {
 
                 <div id="nice-to-have" className="form-group row">
                   <label className="col-xs-3">Nice to have: </label>
-                  <input id="required-input"
+                  <input id="nice-to-have-input"
                          className="col-xs-9"
                          type="text"
                          onChange={this.handleInputChange.bind(this.state.alert, "niceTohaveCriteria")}

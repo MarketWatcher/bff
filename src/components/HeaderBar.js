@@ -13,7 +13,7 @@ export class HeaderBar extends Component {
     renderWelcomeMessage(header) {
         return header.props.user.loggedIn ?
             <li>
-                <a className="disabled">
+                <a className="disabled" id="user-email">
                     <p><i className="fa fa-user"></i> Logged in as <b>{header.props.user.email}</b></p>
                 </a>
             </li> : ""
