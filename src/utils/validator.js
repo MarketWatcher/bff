@@ -31,7 +31,7 @@ export default class Validator {
                 }
             }
 
-            cb()
+            if(cb) cb()
         })
     }
 

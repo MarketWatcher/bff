@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import * as actionCreators  from "../actions/alerts"
-import * as notifications  from "../actions/site-notifications"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
 
@@ -45,7 +44,7 @@ export class CreateAlert extends Component {
         newState.alert[field] = e.target.value
 
         this.setState(newState)
-        this.validator.validateField(field, e.targetValue)
+        this.validator.validateField(field, e.target.value)
     }
 
     render() {
@@ -102,7 +101,7 @@ export class CreateAlert extends Component {
                                             <div className="col-md-6 col-md-offset-6 text-right">
                                                 <button type="submit" id="save-alert" className="btn btn-info btn-fill btn-wd" onClick={this.handleSave}>Create</button>
                                                 &nbsp;
-                                                <button type="submit" id="cancel" className="btn btn-danger btn-fill btn-wd" onClick={this.handleCancel}>Cancel</button>
+                                                <button id="cancel" className="btn btn-danger btn-fill btn-wd" onClick={this.handleCancel}>Cancel</button>
                                             </div>
                                         </div>
                                     </form>
@@ -110,6 +109,7 @@ export class CreateAlert extends Component {
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         )
@@ -141,8 +141,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(actionCreators, dispatch),
-    notifications: bindActionCreators(notifications, dispatch)
+    actions : bindActionCreators(actionCreators, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAlert)
