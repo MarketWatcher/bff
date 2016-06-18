@@ -48,11 +48,27 @@ export class CreateAlert extends Component {
     }
 
     render() {
+        let requestErrorContainer = ""
+
+        if(this.props.alertRequestStatus && this.props.alertRequestStatus.messageVisible){
+            requestErrorContainer = (
+                <div className="alert alert-danger alert-with-icon">
+                    <span className="icon" className="fa fa-exclamation-triangle">
+
+                    </span>
+                    <span className="message">
+                        There was an error creating the alert
+                    </span>
+                </div>
+            )
+        }
+
         return (
             <div className="content">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                            { requestErrorContainer }
                             <div className="card">
                                 <div className="header header-underlined">
                                     <h4 className="title">Create Alert</h4>
@@ -136,7 +152,7 @@ class CreateAlertInputRow extends Component {
 /* eslint-enable */
 
 const mapStateToProps = (state) => ({
-    alert: state.newAlert,
+    alertRequestStatus: state.newAlert,
     user: state.user
 })
 
