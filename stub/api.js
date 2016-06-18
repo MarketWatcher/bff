@@ -25,6 +25,15 @@ app.post("/alerts", function(req, res){
     res.send(req.body)
 })
 
+app.get("/trends/user/:id", (req, res) => {
+    res.send(alerts.map((alert) => {
+        return {
+            alert: alert,
+            delta: Math.floor(Math.random() * 10000 - 5000)
+        }
+    }))
+})
+
 
 app.listen(8000, function () {
     /* eslint-disable */

@@ -10,12 +10,20 @@ export class Alert extends Component {
 
     render() {
         return (
-            <div className="alert-detail panel panel-default">
-                <div className="panel-heading">
-                    <h3 className="panel-title">{this.props.alert.name}</h3>
-                </div>
-                <div className="panel-body">
-                    Panel content
+            <div className="content">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                            <div className="card">
+                                <div className="header header-underlined">
+                                    <h4 className="title">{this.props.alert.name}</h4>
+                                </div>
+                                <div className="content">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

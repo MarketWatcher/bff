@@ -77,7 +77,7 @@ export class CreateAlert extends Component {
                                     <form>
                                         <CreateAlertInputRow field="name" errors={this.validator.errors}>
                                             <label className="form-control-label">Alert Title</label>
-                                            <input id="alert-title" maxLength="32" type="text" className="form-control border-input"
+                                            <input id="alert-title" maxLength="32" autoFocus type="text" className="form-control border-input"
                                                 onChange={this.handleInputChange.bind(this, "name")} value={this.state.alert.name} />
                                         </CreateAlertInputRow>
                                         <div className="row bordered-spacer-10"></div>

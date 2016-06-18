@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import * as alertActions from "../actions/alerts"
+import * as trends from "../actions/trends"
 
 import Trends from "./Trends"
 import Notifications from "./Notifications"
@@ -9,7 +9,7 @@ import Notifications from "./Notifications"
 export default class PersonalDashboard extends Component {
 
     componentDidMount(){
-        this.props.actions.listAlerts(this.props.user.id)
+        this.props.actions.listTrends(1)
     }
 
     render() {
@@ -53,7 +53,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(alertActions, dispatch)
+    actions : bindActionCreators(trends, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(PersonalDashboard)

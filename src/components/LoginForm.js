@@ -33,7 +33,7 @@ export class LoginForm extends Component {
                             <div className="col-md-12">
                                 <div className="form-group">
                                     <label htmlFor="email">Email Address</label>
-                                    <input type="email" className="form-control border-input" id="email" placeholder="Enter E-mail" id="email" value={this.state.email}  onChange={this.handleInputChange.bind(this, "email")}/>
+                                    <input type="email" className="form-control border-input" id="email" placeholder="Enter E-mail" autoFocus value={this.state.email}  onChange={this.handleInputChange.bind(this, "email")}/>
                                 </div>
                             </div>
                         </div>

@@ -1,6 +1,7 @@
 import { combineReducers } from "redux"
 import { routerReducer } from "react-router-redux"
 import siteNotificationReducer from "./site-notifications"
+import trendReducer from "./trends"
 
 export default combineReducers({
     routing: routerReducer,
@@ -28,6 +29,7 @@ export default combineReducers({
             return state
         }
     },
+    trends: trendReducer,
     newAlert: (state = {}, action) => {
         switch(action.type) {
         case "CREATE_ALERT_SUCCESSFUL":
