@@ -16,8 +16,21 @@ div.spacer-15 {
     min-height:15px;
 }
 
+div.bordered-spacer-10 {
+    min-height: 10px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #bbb;
+    width: 100%;
+    margin-left : auto;
+    margin-right: auto;
+}
+
 .opacity-95 {
     opacity: .95;
+}
+
+.disabled-link-no-hover:hover {
+    color: #9A9A9A !important;
 }
 
 /* Trend List */
@@ -40,14 +53,34 @@ a .trend-tile .card:hover {
     margin-top: 50%;
 }
 
-@media (max-width: 500px){
-    .trend-icon {
-        font-size: 2em;
-        display: inline;
+@media (max-width: 900px) {
+    .trend-tile-left-padding {
+        display:none;
     }
 
+    .trend-icon {
+        font-size: 4em;
+        display: inline;
+    }
+}
+
+@media (max-width: 780px){
     .trend-detail {
         display: none;
+    }
+    .trend-icon {
+        font-size: 4em;
+        display: inline;
+    }
+}
+
+@media (max-width: 780px){
+    .trend-detail {
+        display: none;
+    }
+    .trend-icon {
+        font-size: 4em;
+        display: inline;
     }
 }
 
@@ -92,7 +125,7 @@ a .trend-tile .card:hover {
 /* Paper dashboard theme card class customizations */
 
 .header-underlined {
-    border-bottom: 1px solid;
+    border-bottom: 1px solid #bbb;
     padding-bottom: 20px !important;
 }
 
@@ -104,4 +137,26 @@ a .trend-tile .card:hover {
 /* Footer */
 footer {
     background-color: #68B3C8;
+}
+
+/* Notifications */
+.site-notification-container {
+    box-sizing: border-box;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    width: 400px;
+    padding: 0 15px;
+    max-height: calc(100% - 30px);
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.site-notification {
+    box-sizing: border-box;
+    position: relative;
+    opacity: 0.9;
+    margin-top: 20px;
+    transition: all 0.5s ease-in-out
 }

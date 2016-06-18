@@ -24,6 +24,11 @@ export default {
             useHead: true
         })
     ],
+    node: {
+        crypto: "empty",
+        net: "empty",
+        dns: "empty"
+    },
     module : {
         loaders : [
             {
@@ -39,6 +44,10 @@ export default {
                 test    : /\.css$/,
                 exclude: "/node_modules",
                 loader : "style!css"
+            },
+            {
+                test    : /\.json$/,
+                loader : "json"
             },
             /* eslint-disable */
             { test: /\.woff(\?.*)?$/,  loader: "url-loader?prefix=fonts/&name=[path][name].[ext]&limit=10000&mimetype=application/font-woff" },

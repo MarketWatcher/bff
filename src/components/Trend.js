@@ -19,11 +19,11 @@ export default class Trend extends Component {
         return (
             <DashboardTile title={this.props.trend.alert.title || "No name!"} href={`/alerts/id/${this.props.trend.alert.id}`}>
                 <div className="row">
-                    <div className="col-md-3"></div>
-                    <div className="col-md-5 text-center">
+                    <div className="col-md-3 col-sm-0 trend-tile-left-padding"></div>
+                    <div className="col-md-5 col-sm-3 text-center">
                         <i className={`fa fa-5x fa-fw trend-icon ${trendStyle.className}`}></i>
                     </div>
-                    <div className="col-md-4">
+                    <div className="col-md-4 col-sm-9">
                         <div className="trend-detail">
                             {trendStyle.label}
                         </div>

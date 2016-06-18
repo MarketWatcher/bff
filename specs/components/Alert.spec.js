@@ -2,7 +2,6 @@ import React from "react"
 import { expect } from "chai"
 import { shallow } from "enzyme"
 import { Alert } from "../../src/components/Alert"
-import { Router } from "react-router"
 
 describe("Alert component", () => {
     let wrapper

@@ -1,8 +1,7 @@
 import React from "react"
 import { expect } from "chai"
-import { shallow, mount, render } from "enzyme"
+import { mount } from "enzyme"
 import { LoginForm } from "../../src/components/LoginForm"
-import { Router } from "react-router"
 
 describe("LoginForm component", () => {
     let user = {errorMessage: ""}

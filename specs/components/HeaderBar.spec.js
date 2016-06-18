@@ -1,10 +1,8 @@
 import React from "react"
-import ReactTestUtils from "react-addons-test-utils"
 
 import { expect } from "chai"
-import { shallow, mount, render } from "enzyme"
+import { mount} from "enzyme"
 import { HeaderBar } from "../../src/components/HeaderBar"
-import { Link } from "react-router"
 
 
 describe("Header Bar component", () => {

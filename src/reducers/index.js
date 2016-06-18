@@ -1,9 +1,11 @@
 import { combineReducers } from "redux"
 import { routerReducer } from "react-router-redux"
+import siteNotificationReducer from "./site-notifications"
 
 export default combineReducers({
     routing: routerReducer,
     user: userReducer,
+    siteNotifications: siteNotificationReducer,
     alerts: (state = [], action) => {
         switch(action.type) {
         case "ALERTS_RECEIVED":

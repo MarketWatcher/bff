@@ -1,8 +1,12 @@
 import React, { Component } from "react"
 import * as actionCreators  from "../actions/alerts"
+import * as notifications  from "../actions/site-notifications"
 import { connect } from "react-redux"
 import { bindActionCreators } from "redux"
-import { Alert } from "react-bootstrap"
+
+import schema from "../schemas/alert"
+import Validator from "../utils/validator"
+import classNames from "classnames"
 
 export class CreateAlert extends Component {
     state = {
@@ -12,7 +16,7 @@ export class CreateAlert extends Component {
             requiredCriteria: "",
             niceTohaveCriteria: "",
             excludedCriteria: "",
-            threshold: 0,
+            threshold: "",
             status: 1
         }
     }
@@ -21,6 +25,8 @@ export class CreateAlert extends Component {
         this.props.actions.resetAlertState()
     }
 
+    validator = new Validator(schema)
+
     handleCancel = (e) => {
         e.preventDefault()
         this.props.actions.cancel()
@@ -28,86 +34,106 @@ export class CreateAlert extends Component {
 
     handleSave = (e) => {
         e.preventDefault()
-        this.props.actions.createAlert(this.state.alert)
+        this.validator.validate(this.state.alert)
+        this.forceUpdate()
+        if(this.validator.isValid)
+            this.props.actions.createAlert(this.state.alert)
     }
 
     handleInputChange = (field, e) => {
-        var newState = this.state
+        let newState = this.state
         newState.alert[field] = e.target.value
+
         this.setState(newState)
+        this.validator.validateField(field, e.targetValue)
     }
 
     render() {
         return (
-        <div className="container">
-        { this.props.alert.messageVisible && <Alert bsStyle={this.props.alert.messageStyle}>
-            <h4>{this.props.alert.message}</h4>
-        </Alert>
-        }
-            <h2 className="title">Create Alert</h2>
-
-        <div id="alert-name" className="row form-group" >
-          <label htmlFor="alert-name-input" className="col-xs-3">Alert Name: </label>
-          <input id="alert-name-input" required="true" maxLength="32" type="text" className="col-xs-6"
-                    onChange={this.handleInputChange.bind(this.state.alert, "name")} value={this.state.alert.name}  />
-        </div>
-
-        <div id="alert-criteria" className="row form-group">
-            <label className="col-xs-3">Alert Criteria: </label>
-            <div className="col-xs-6">
-                <div id="req" className="form-group row" >
-                  <label className="col-xs-3">Required: </label>
-                  <input id="required-input"
-                         required="true"
-                         className="col-xs-9"
-                         type="text"
-                         onChange={this.handleInputChange.bind(this.state.alert, "requiredCriteria")}
-                         value={this.state.alert.requiredCriteria}  />
+            <div className="content">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
+                            <div className="card">
+                                <div className="header header-underlined">
+                                    <h4 className="title">Create Alert</h4>
+                                </div>
+                                <div className="content">
+                                    <form>
+                                        <CreateAlertInputRow field="name" errors={this.validator.errors}>
+                                            <label className="form-control-label">Alert Title</label>
+                                            <input id="alert-title" maxLength="32" type="text" className="form-control border-input"
+                                                onChange={this.handleInputChange.bind(this, "name")} value={this.state.alert.name} />
+                                        </CreateAlertInputRow>
+                                        <div className="row bordered-spacer-10"></div>
+                                        <div className="row">
+                                            <div className="col-md-12 form-group">
+                                                <label>Alert Criteria</label>
+                                            </div>
+                                        </div>
+                                        <CreateAlertInputRow field="requiredCriteria" errors={this.validator.errors} horizontal>
+                                            <label className="col-sm-3">Must include</label>
+                                            <div className="col-sm-9">
+                                                <input className="form-control border-input" id="must-include" onChange={this.handleInputChange.bind(this, "requiredCriteria")}
+                                                value={this.state.alert.requiredCriteria}/>
+                                            </div>
+                                        </CreateAlertInputRow>
+                                        <CreateAlertInputRow field="niceTohaveCriteria" errors={this.validator.errors} horizontal>
+                                            <label className="col-sm-3">Can include</label>
+                                            <div className="col-sm-9">
+                                                <input className="form-control border-input" id="can-include" onChange={this.handleInputChange.bind(this, "niceTohaveCriteria")}
+                                                value={this.state.alert.niceTohaveCriteria}/>
+                                            </div>
+                                        </CreateAlertInputRow>
+                                        <CreateAlertInputRow field="excludedCriteria" errors={this.validator.errors} horizontal>
+                                            <label className="col-sm-3">Exclude</label>
+                                            <div className="col-sm-9">
+                                                <input className="form-control border-input" id="exclude" onChange={this.handleInputChange.bind(this, "excludedCriteria")}
+                                                value={this.state.alert.excludedCriteria}/>
+                                            </div>
+                                        </CreateAlertInputRow>
+                                        <div className="bordered-spacer-10"></div>
+                                        <CreateAlertInputRow field="threshold" errors={this.validator.errors}>
+                                            <label>Threshold</label>
+                                            <input id="threshold" type="number" className="form-control border-input"
+                                                onChange={this.handleInputChange.bind(this, "threshold")} value={this.state.alert.threshold} />
+                                        </CreateAlertInputRow>
+                                        <div className="row">
+                                            <div className="col-md-6 col-md-offset-6 text-right">
+                                                <button type="submit" id="save-alert" className="btn btn-info btn-fill btn-wd" onClick={this.handleSave}>Create</button>
+                                                &nbsp;
+                                                <button type="submit" id="cancel" className="btn btn-danger btn-fill btn-wd" onClick={this.handleCancel}>Cancel</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-
-                <div id="nice-to-have" className="form-group row">
-                  <label className="col-xs-3">Nice to have: </label>
-                  <input id="required-input"
-                         className="col-xs-9"
-                         type="text"
-                         onChange={this.handleInputChange.bind(this.state.alert, "niceTohaveCriteria")}
-                         value={this.state.alert.niceTohaveCriteria}  />
-                </div>
-
-                <div id="excluded-input" className="form-group row">
-                  <label className="col-xs-3">Excluded: </label>
-                  <input id="excluded-input"
-                         type="text"
-                         className="col-xs-9"
-                         onChange={this.handleInputChange.bind(this.state.alert, "excludedCriteria")}
-                         value={this.state.alert.excludedCriteria}  />
-                </div>
-              </div>
             </div>
-
-            <div id="alert-threshold" className="form-group row" >
-              <label htmlFor="threshold" className="col-xs-3">Threshold: </label>
-              <input id="threshold"
-                     type="numeric"
-                     className="col-xs-2"
-                     onChange={this.handleInputChange.bind(this.state.alert, "threshold")}
-                     value={this.state.alert.threshold}  />
-            </div>
-
-            <div id="button-bar" className="row form-group">
-              <div className="col-xs-3 pull-right">
-                <button id="save-button" className="btn-success" onClick={this.handleSave}>Save</button>
-              </div>
-              <div className="col-xs-3 pull-right">
-                <button id="cancel-button" className="btn-default pull-right" onClick={this.handleCancel}>Cancel</button>
-              </div>
-            </div>
-
-        </div>
-
         )
     }
 }
+
+/* eslint-disable */
+class CreateAlertInputRow extends Component {
+    render() {
+        let field = this.props.field
+        let error = this.props.errors[field]
+        return (
+            <div className="row">
+                <div className={classNames("col-md-12 form-group", {"has-error": error})}>
+                    {this.props.children}
+                    {error &&
+                        <small className={classNames("text-danger", {"col-sm-9 col-sm-offset-3": this.props.horizontal})}>{error.message}</small>
+                    }
+                </div>
+            </div>
+        )
+    }
+}
+/* eslint-enable */
 
 const mapStateToProps = (state) => ({
     alert: state.newAlert,
@@ -115,7 +141,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(actionCreators, dispatch)
+    actions : bindActionCreators(actionCreators, dispatch),
+    notifications: bindActionCreators(notifications, dispatch)
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateAlert)

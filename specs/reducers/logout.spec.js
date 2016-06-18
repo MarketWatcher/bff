@@ -1,4 +1,3 @@
-import React from "react"
 import { userReducer } from "../../src/reducers"
 import { expect } from "chai"
 

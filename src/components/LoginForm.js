@@ -26,24 +26,30 @@ export class LoginForm extends Component {
                 <div className="content">
                     <form onSubmit={this.handleSubmit}>
                         {this.props.user.errorMessage?
-                            <div className="has-error">
-                                <span>{this.props.user.errorMessage}</span>
+                            <div>
+                                <span className="text-danger">{this.props.user.errorMessage}</span>
                             </div> : ""}
-                        <div className="row"><div className="col-md-12">
-                            <div className="form-group">
-                                <label htmlFor="password">Email Address</label>
-                                <input type="email" className="form-control" id="email" placeholder="Enter E-mail" id="email" value={this.state.email}  onChange={this.handleInputChange.bind(this, "email")}/>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="form-group">
+                                    <label htmlFor="email">Email Address</label>
+                                    <input type="email" className="form-control border-input" id="email" placeholder="Enter E-mail" id="email" value={this.state.email}  onChange={this.handleInputChange.bind(this, "email")}/>
+                                </div>
                             </div>
-                        </div></div>
-                        <div className="row"><div className="col-md-12">
-                            <div className="form-group">
-                                <label htmlFor="password">Password</label>
-                                <input type="password" className="form-control" id="password" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, "password")}/>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <div className="form-group">
+                                    <label htmlFor="password">Password</label>
+                                    <input type="password" className="form-control border-input" id="password" placeholder="Password" value={this.state.password}  onChange={this.handleInputChange.bind(this, "password")}/>
+                                </div>
                             </div>
-                        </div></div>
-                        <div className="row"><div className="col-md-12">
-                            <button type="submit" className="btn btn-info btn-fill btn-wd pull-right" onClick={this.handleSubmit.bind(this)}>Submit</button>
-                        </div></div>
+                        </div>
+                        <div className="row">
+                            <div className="col-md-12">
+                                <button type="submit" className="btn btn-info btn-fill btn-wd pull-right" onClick={this.handleSubmit}>Submit</button>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

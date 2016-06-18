@@ -1,35 +1,29 @@
 import React from "react"
 import { expect } from "chai"
-import { shallow, render } from "enzyme"
-import ConnectedCreateAlert, { CreateAlert } from "../../src/components/CreateAlert"
-import { Router } from "react-router"
+import { shallow } from "enzyme"
+import { CreateAlert } from "../../src/components/CreateAlert"
 
 describe("CreateAlert component", () => {
     let alert = {messageVisible: false, messageStyle: "success", message: "Alert created!"}
 
     it("contains title", () => {
         const wrapper = shallow(<CreateAlert alert={alert}/>)
-        expect(wrapper.find("h2").text()).to.equal("Create Alert")
+        expect(wrapper.find("h4").text()).to.equal("Create Alert")
     })
 
-    it("contains alert label", () => {
+    it("contains alert title", () => {
         const wrapper = shallow(<CreateAlert alert={alert}/>)
-        expect(wrapper.find("#alert-name").name()).to.equal("div")
-    })
-
-    it("contains alert criteria", () => {
-        const wrapper = shallow(<CreateAlert alert={alert}/>)
-        expect(wrapper.find("#alert-criteria").name()).to.equal("div")
+        expect(wrapper.find("#alert-title").name()).to.equal("input")
     })
 
     it("contains alert threshold", () => {
         const wrapper = shallow(<CreateAlert alert={alert}/>)
-        expect(wrapper.find("#alert-threshold").name()).to.equal("div")
+        expect(wrapper.find("#threshold").name()).to.equal("input")
     })
 
     it("contains cancel button", () => {
         const wrapper = shallow(<CreateAlert alert={alert}/>)
-        var cancelButton = wrapper.find("#cancel-button")
+        var cancelButton = wrapper.find("#cancel")
         expect(cancelButton.name()).to.equal("button")
     })
 

@@ -1,5 +1,6 @@
 import AlertApi from "../api/alert-api"
 import { push } from "react-router-redux"
+import {NotificationActionFactory} from "./site-notifications"
 
 export function listAlerts(ownerId) {
     return dispatch => {
@@ -41,6 +42,8 @@ export function createAlert(newAlert) {
                 type: "CREATE_ALERT_SUCCESSFUL",
                 alert: alert
             })
+
+            dispatch(NotificationActionFactory.success("Alert was created"))
             dispatch(push("/dashboard"))
         }, (error) => {
             dispatch({
