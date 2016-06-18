@@ -14,7 +14,7 @@ describe("Alert component", () => {
     })
 
     it("contains title", () => {
-        let alertTitle = wrapper.find(".panel-title")
+        let alertTitle = wrapper.find(".header .title")
         expect(alertTitle.text()).to.equal(alert.name)
     })
 })
