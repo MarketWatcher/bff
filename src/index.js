@@ -12,7 +12,6 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import "font-awesome/css/font-awesome.css"
 import "./assets/styles/animate.min.css"
 import "./assets/styles/paper-dashboard.css"
-import "react-notifications/dist/notifications.css"
 import "./assets/styles/style.css"
 
 import App from "./components/App"
