@@ -14,7 +14,8 @@ export default class Landing extends Component {
                     <div className="container">
                         <div className="col-md-6">
                             <h2 className="title">Welcome to Market Watcher!</h2>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus cursus, lectus eu tincidunt efficitur, nunc ligula sollicitudin nisi, quis porta justo dolor vel arcu. Phasellus ac leo facilisis, rutrum justo gravida, tristique neque. Sed lacinia nisl in orci egestas, tempor tristique erat pulvinar. Sed orci ipsum, volutpat id mi ut, lacinia laoreet enim. In et euismod nunc. Sed rhoncus at diam vitae faucibus. Curabitur sit amet maximus quam. Mauris fermentum mollis arcu, sed aliquet eros tincidunt a. Nulla mollis eu tortor quis ultricies. Vestibulum rutrum ex non porta blandit.</p>
+                            <p>Market Watcher aims to automate the manual task of analyzing feedback patterns in twitter real-time streams. It minimizes your analysis time to make you more time.</p>
+                            <p>Get your account, login and create your search profile to view your trend graphs fast and easily. And start getting notifications, when your search criterias exceeds threshold.</p>
                         </div>
                         <div className=" col-md-offset-1 col-md-5">
                             <LoginForm />
