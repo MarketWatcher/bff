@@ -1,6 +1,6 @@
 export default class AlertApi {
     static list(ownerId, cb, err) {
-        let alertServiceURL = `http://localhost:8000/alerts/owner_id/${ownerId}`
+        let alertServiceURL = `/api/alerts/owner_id/${ownerId}`
         fetch(alertServiceURL)
         .then(res => res.json())
         .then(json => cb(json))
@@ -8,7 +8,7 @@ export default class AlertApi {
     }
 
     static findById(id, cb, err) {
-        fetch(`http://localhost:8000/alerts/id/${id}`)
+        fetch(`/api/alerts/id/${id}`)
         .then(res => res.json())
         .then(json => cb(json))
         .catch(ex => err(ex))
@@ -25,7 +25,7 @@ export default class AlertApi {
             "status" : 1
         }
 
-        fetch("http://localhost:8000/alerts", {
+        fetch("/api/alerts", {
             method: "POST",
             headers: {
                 "Accept": "application/json",
