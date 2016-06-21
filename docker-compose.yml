@@ -1,0 +1,4 @@
+frontend:
+  image: thoughtworksturkey/marketwatcher-io
+  ports:
+    - "80:80"
