@@ -128,12 +128,14 @@ class CreateAlertInputRow extends Component {
     render() {
         let field = this.props.field
         let error = this.props.errors[field]
+
+        let errorTextId = `${field}-error`
         return (
             <div className="row">
                 <div className={classNames("col-md-12 form-group", {"has-error": error})}>
                     {this.props.children}
                     {error &&
-                        <small className={classNames("text-danger", {"col-sm-9 col-sm-offset-3": this.props.horizontal})}>{error.message}</small>
+                        <small id={errorTextId} className={classNames("text-danger", {"col-sm-9 col-sm-offset-3": this.props.horizontal})}>{error.message}</small>
                     }
                 </div>
             </div>
