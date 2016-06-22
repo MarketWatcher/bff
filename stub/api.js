@@ -10,22 +10,22 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
-app.get("/alerts/owner_id/:id", function (req, res) {
+app.get("/api/alerts/owner_id/:id", function (req, res) {
     res.send(alerts)
 })
 
-app.get("/alerts/id/:alarmId", function (req, res) {
+app.get("/api/alerts/id/:alarmId", function (req, res) {
     res.send(alerts[req.params.alarmId - 1])
 })
 
-app.post("/alerts", function(req, res){
+app.post("/api/alerts", function(req, res){
     req.body.id = idCount
     idCount++
     alerts.push(req.body)
     res.send(req.body)
 })
 
-app.get("/trends/user/:id", (req, res) => {
+app.get("/api/trends/user/:id", (req, res) => {
     res.send(alerts.map((alert) => {
         return {
             alert: alert,

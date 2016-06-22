@@ -3,7 +3,7 @@ export default function trendReducer(state = [], action) {
     case "GET_TRENDS_SUCCESSFUL":
         return action.trends
     case "GET_TRENDS_UNSUCCESSFUL":
-        return {error: true, message: action.error}
+        return {error: true, message: action.error + ""}
     default:
         return state
 

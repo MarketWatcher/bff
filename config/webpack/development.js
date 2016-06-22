@@ -11,7 +11,10 @@ webpackConfig.plugins.push(
 webpackConfig.devServer = {
     proxy: {
         "/api/alerts*": {
-            target: "http://localhost:8000"
+            target: "http://localhost:8000/"
+        },
+        "/api/trends*": {
+            target: "http://localhost:8000/"
         }
     }
 }

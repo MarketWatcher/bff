@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux"
 import schema from "../schemas/alert"
 import Validator from "../utils/validator"
 import classNames from "classnames"
+import AlertMessage from "./AlertMessage"
 
 export class CreateAlert extends Component {
     state = {
@@ -48,19 +49,9 @@ export class CreateAlert extends Component {
     }
 
     render() {
-        let requestErrorContainer = ""
-
+        let errorMessage = null
         if(this.props.alertRequestStatus && this.props.alertRequestStatus.messageVisible){
-            requestErrorContainer = (
-                <div className="alert alert-danger alert-with-icon">
-                    <span className="icon" className="fa fa-exclamation-triangle">
-
-                    </span>
-                    <span className="message">
-                        There was an error creating the alert
-                    </span>
-                </div>
-            )
+            errorMessage = "There was an error creating the alert"
         }
 
         return (
@@ -68,7 +59,7 @@ export class CreateAlert extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                            { requestErrorContainer }
+                            <AlertMessage message={errorMessage} danger/>
                             <div className="card">
                                 <div className="header header-underlined">
                                     <h4 className="title">Create Alert</h4>

@@ -5,6 +5,7 @@ import * as trends from "../actions/trends"
 
 import Trends from "./Trends"
 import Notifications from "./Notifications"
+import AlertMessage from "./AlertMessage"
 
 export default class PersonalDashboard extends Component {
 
@@ -13,9 +14,16 @@ export default class PersonalDashboard extends Component {
     }
 
     render() {
+        let errorMessage = null
+
+        if(this.props.trends.error){
+            errorMessage = this.props.trends.message
+        }
+
         return (
             <div className="content">
                 <div className="container">
+                    <AlertMessage message={errorMessage} danger />
                     <div className="row">
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-8">
                             <div className="card card-transparent">

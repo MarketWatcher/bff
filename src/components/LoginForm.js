@@ -27,7 +27,7 @@ export class LoginForm extends Component {
                     <form onSubmit={this.handleSubmit}>
                         {this.props.user.errorMessage?
                             <div>
-                                <span className="text-danger">{this.props.user.errorMessage}</span>
+                                <span id="error-text" className="text-danger">{this.props.user.errorMessage}</span>
                             </div> : ""}
                         <div className="row">
                             <div className="col-md-12">
