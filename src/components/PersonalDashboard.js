@@ -17,7 +17,7 @@ export default class PersonalDashboard extends Component {
         let errorMessage = null
 
         if(this.props.trends.error){
-            errorMessage = this.props.trends.message
+            errorMessage = "There was an error retrieving trends, contact your administrator or try again later"
         }
 
         return (
@@ -25,7 +25,7 @@ export default class PersonalDashboard extends Component {
                 <div className="container">
                     <AlertMessage message={errorMessage} danger />
                     <div className="row">
-                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-8">
+                        <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                             <div className="card card-transparent">
                                 <div className="header header-underlined">
                                     <h3 className="title">Trends</h3>
@@ -37,7 +37,7 @@ export default class PersonalDashboard extends Component {
                             </div>
                         </div>
 
-                        <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                        <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <div className="card card-transparent">
                                 <div className="header header-underlined">
                                     <h3 className="title">Notifications</h3>

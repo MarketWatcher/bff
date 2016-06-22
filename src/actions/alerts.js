@@ -43,7 +43,7 @@ export function createAlert(newAlert) {
                 alert: alert
             })
 
-            dispatch(NotificationActionFactory.success("Alert was created"))
+            dispatch(NotificationActionFactory.success("Alert was created", 10000))
             dispatch(push("/dashboard"))
         }, (error) => {
             dispatch({
