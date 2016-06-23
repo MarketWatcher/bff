@@ -28,7 +28,7 @@ export class SiteNotification extends Component {
         return (
             <div className={notificationClass}>
                 <button type="button" aria-hidden="true" className="close" data-notify="dismiss" onClick={this.dismiss}>×</button>
-                <span data-notify="message">{this.props.notification.text}</span>
+                <span className="site-notification-text" data-notify="message">{this.props.notification.text}</span>
             </div>
         )
     }

@@ -7,7 +7,7 @@ export default class Trends extends Component {
     render() {
         return (
             <div className="row">
-                <DashboardTile href="/alerts/new" title="Create Alert">
+                <DashboardTile id="create-alert" href="/alerts/new" title="Create Alert">
                     <div className="text-center">
                         <i className="fa fa-plus-square-o fa-5x trend-icon icon-create-alert"></i>
                     </div>
