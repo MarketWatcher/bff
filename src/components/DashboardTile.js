@@ -4,7 +4,7 @@ import { Link } from "react-router"
 export default class DashboardTile extends Component {
     render() {
         let tileContent = (
-            <div className="col-md-4 col-lg-4 col-xs-6 trend-tile">
+            <div className="col-md-4 col-lg-4 col-sm-6 col-xs-12 trend-tile">
                 <div className="card">
                     <div className="header header-underlined">
                         <h5 className="title">{this.props.title}</h5>
