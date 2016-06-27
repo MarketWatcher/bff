@@ -59,5 +59,8 @@ export default {
             { test: /\.cur(\?.*)?$/,   loader: "url-loader?prefix=images/&name=[path][name].[ext]&limit=10000&mimetype=image/cur" }
             /* eslint-enable */
         ]
+    },
+    watchOptions: {
+        poll: 1000
     }
 }
