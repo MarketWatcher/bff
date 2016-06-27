@@ -42,7 +42,7 @@ export class CreateAlert extends Component {
 
     handleInputChange = (field, e) => {
         let newState = this.state
-        newState.alert[field] = e.target.value
+        newState.alert[field] = e.target.value.trim()
 
         this.setState(newState)
         this.validator.validateField(field, e.target.value)
@@ -68,7 +68,7 @@ export class CreateAlert extends Component {
                                     <form>
                                         <CreateAlertInputRow field="name" errors={this.validator.errors}>
                                             <label className="form-control-label">Alert Title</label>
-                                            <input id="alert-title" maxLength="32" autoFocus type="text" className="form-control border-input"
+                                            <input id="alert-title" autoFocus type="text" className="form-control border-input"
                                                 onChange={this.handleInputChange.bind(this, "name")} value={this.state.alert.name} />
                                         </CreateAlertInputRow>
                                         <div className="row bordered-spacer-10"></div>
