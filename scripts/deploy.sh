@@ -20,6 +20,15 @@ if [ $CONFIGURE_RESULT -ne 0 ]; then
 fi
 
 COMPOSE_PROJECT_NAME=marketwatcher-io \
+ecs-cli compose --file docker-compose.yml service down
+
+DOWN_RESULT=$?
+if [ $DOWN_RESULT -ne 0 ]; then
+	echo "Could not bring service DOWN in ECS"
+	exit $DOWN_RESULT
+fi
+
+COMPOSE_PROJECT_NAME=marketwatcher-io \
 ecs-cli compose --file docker-compose.yml service up
 
 UP_RESULT=$?
