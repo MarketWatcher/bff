@@ -4,18 +4,18 @@ export default class TrendApi {
         fetch(trendServiceURL)
         .then(res => { return res.json() })
         .then(json => {
-        	let alerts = json.map((alert) => {
-        		return {
-        			delta: 0,
-        			alert: alert
-        		}
-        	})
+            let alerts = json.map((alert) => {
+                return {
+                    delta: 0,
+                    alert: alert
+                }
+            })
 
-        	return cb(alerts)
+            return cb(alerts)
         })
         .catch(ex => err(ex))
     }
 
 
 }
-	
+    
