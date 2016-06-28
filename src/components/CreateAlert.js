@@ -42,7 +42,7 @@ export class CreateAlert extends Component {
 
     handleInputChange = (field, e) => {
         let newState = this.state
-        newState.alert[field] = e.target.value.trim()
+        newState.alert[field] = e.target.value
 
         this.setState(newState)
         this.validator.validateField(field, e.target.value)
