@@ -17,7 +17,7 @@ export default class Trend extends Component {
         let trendStyle = this.getTrendStyleByDelta(this.props.trend.delta)
 
         return (
-            <DashboardTile title={this.props.trend.alert.name || "No name!"} href={`/alerts/id/${this.props.trend.alert.id}`}>
+            <DashboardTile id={`trend-${this.props.trend.alert.id}`} title={this.props.trend.alert.name || "No name!"} href={`/alerts/id/${this.props.trend.alert.id}`}>
                 <div className="row">
                     <div className="col-md-3 col-sm-0 trend-tile-left-padding"></div>
                     <div className="col-md-5 col-sm-3 text-center">
