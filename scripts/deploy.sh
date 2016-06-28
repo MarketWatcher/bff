@@ -27,7 +27,7 @@ if [ $DOWN_RESULT -ne 0 ]; then
 	exit $DOWN_RESULT
 fi
 
-sleep 10
+sleep 30
 
 ecs-cli compose --file docker-compose.yml service up
 
