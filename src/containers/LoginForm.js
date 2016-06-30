@@ -1,14 +1,13 @@
 import React, { Component } from "react"
-import * as actionCreators  from "../actions"
+import { login }  from "../actions"
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 
 export class LoginForm extends Component {
     state = {email: "", password: ""}
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.actions.dispatchLogin(this.state.email, this.state.password)
+        this.props.dispatch(login(this.state.email, this.state.password))
     }
 
     handleInputChange = (field, e) => {
@@ -25,10 +24,7 @@ export class LoginForm extends Component {
                 </div>
                 <div className="content">
                     <form onSubmit={this.handleSubmit}>
-                        {this.props.user.errorMessage?
-                            <div>
-                                <span id="error-text" className="text-danger">{this.props.user.errorMessage}</span>
-                            </div> : ""}
+
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="form-group">
@@ -58,11 +54,7 @@ export class LoginForm extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    user: state.user
+    auth: state.auth
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(actionCreators, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm)
+export default connect(mapStateToProps)(LoginForm)

@@ -1,16 +1,14 @@
 import React, { Component } from "react"
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
-import * as trends from "../actions/trends"
+import { listTrends } from "../actions"
 
-import Trends from "./Trends"
-import Notifications from "./Notifications"
-import AlertMessage from "./AlertMessage"
+import Trends from "../components/Trends"
+import Notifications from "../components/Notifications"
+import SiteAlert from "../components/SiteAlert"
 
 export default class PersonalDashboard extends Component {
-
     componentDidMount(){
-        this.props.actions.listTrends(1)
+        this.props.dispatch(listTrends(this.props.auth.user.id))
     }
 
     render() {
@@ -23,7 +21,7 @@ export default class PersonalDashboard extends Component {
         return (
             <div className="content">
                 <div className="container">
-                    <AlertMessage message={errorMessage} danger />
+                    <SiteAlert message={errorMessage} danger />
                     <div className="row">
                         <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12">
                             <div className="card card-transparent">
@@ -32,7 +30,7 @@ export default class PersonalDashboard extends Component {
                                 </div>
                                 <div className="content">
                                     <div className="spacer-15"></div>
-                                    <Trends trends={this.props.trends} />
+                                    <Trends trends={this.props.trends.content} />
                                 </div>
                             </div>
                         </div>
@@ -57,11 +55,7 @@ export default class PersonalDashboard extends Component {
 
 const mapStateToProps = (state) => ({
     trends: state.trends,
-    user: state.user
+    auth: state.auth
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(trends, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(PersonalDashboard)
+export default connect(mapStateToProps)(PersonalDashboard)

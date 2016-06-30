@@ -4,6 +4,7 @@ import { Router, Route, IndexRedirect, browserHistory } from "react-router"
 import { Provider } from "react-redux"
 import { createStore, applyMiddleware, compose } from "redux"
 import { routerMiddleware, syncHistoryWithStore } from "react-router-redux"
+import api from "./middleware/api"
 import {Authenticated, Public} from "./wrappers/auth"
 import thunk from "redux-thunk"
 import reducers from "./reducers"
@@ -14,14 +15,14 @@ import "./assets/styles/animate.min.css"
 import "./assets/styles/paper-dashboard.css"
 import "./assets/styles/style.css"
 
-import App from "./components/App"
+import App from "./containers/App"
 import Landing from "./components/Landing"
-import PersonalDashboard from "./components/PersonalDashboard"
-import Alert from "./components/Alert"
-import CreateAlert from "./components/CreateAlert"
+import PersonalDashboard from "./containers/PersonalDashboard"
+import Alert from "./containers/Alert"
+import CreateAlert from "./containers/CreateAlert"
 import DevTools from "./containers/DevTools"
 
-let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory)), DevTools.instrument())(createStore))(reducers)
+let store = (compose(applyMiddleware(...[thunk], routerMiddleware(browserHistory), api), DevTools.instrument())(createStore))(reducers)
 let history = syncHistoryWithStore(browserHistory, store)
 
 const routerComponent = (

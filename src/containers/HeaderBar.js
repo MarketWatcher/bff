@@ -1,27 +1,26 @@
 import React, { Component } from "react"
-import * as actionCreators  from "../actions"
+import { logout }  from "../actions"
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 import { Link } from "react-router"
 
 export class HeaderBar extends Component {
 
     logoutClicked = () => {
-        this.props.actions.dispatchLogout()
+        this.props.dispatch(logout())
     }
 
-    renderWelcomeMessage(header) {
-        return header.props.user.loggedIn ?
+    renderWelcomeMessage(auth) {
+        return auth.isAuthenticated ?
             <li>
                 <a id="user-email" className="disabled disabled-link-no-hover">
-                    <p><i className="fa fa-user"></i> Logged in as <b>{header.props.user.email}</b></p>
+                    <p><i className="fa fa-user"></i> Logged in as <b>{auth.user.email}</b></p>
                 </a>
             </li> : ""
 
     }
 
     renderLogoutButton(header) {
-        return header.props.user.loggedIn ?
+        return header.props.auth.isAuthenticated ?
             <li>
                 <a href="#" id="logout" onClick={header.logoutClicked}>
                     <p><i className="fa fa-sign-out"></i> Log Out</p>
@@ -38,10 +37,9 @@ export class HeaderBar extends Component {
                     </div>
                     <div className="collapse navbar-collapse">
                         <ul className="nav navbar-nav navbar-right">
-                            {this.renderWelcomeMessage(this)}
+                            {this.renderWelcomeMessage(this.props.auth)}
                             {this.renderLogoutButton(this)}
                         </ul>
-
                     </div>
                 </div>
             </nav>
@@ -49,12 +47,4 @@ export class HeaderBar extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({
-    user: state.user
-})
-
-const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(actionCreators, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(HeaderBar)
+export default connect()(HeaderBar)

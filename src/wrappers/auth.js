@@ -1,18 +1,20 @@
 import { UserAuthWrapper } from "redux-auth-wrapper"
-import { replace } from "react-router-redux"
+import { push } from "react-router-redux"
 
 export const Authenticated =  UserAuthWrapper({
-    authSelector: state => state.user,
-    redirectAction: replace,
+    authSelector: state => state.auth,
+    redirectAction: push,
     wrapperDisplayName: "Authenticated",
     failureRedirectPath: "/landing",
-    predicate: user => user.loggedIn
+    allowRedirectBack: false,
+    predicate: auth => auth.isAuthenticated
 })
 
 export const Public = UserAuthWrapper({
-    authSelector: state => state.user,
-    redirectAction: replace,
+    authSelector: state => state.auth,
+    redirectAction: push,
     wrapperDisplayName: "Public",
     failureRedirectPath: "/dashboard",
-    predicate: user => !user.loggedIn
+    allowRedirectBack: false,
+    predicate: auth => !auth.isAuthenticated
 })

@@ -1,11 +1,10 @@
 import React, { Component } from "react"
-import * as alertActions from "../actions/alerts"
+import {findAlertById} from "../actions"
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 
 export class Alert extends Component {
     componentDidMount() {
-        this.props.actions.findById(this.props.params.id)
+        this.props.dispatch(findAlertById(this.props.params.id))
     }
 
     render() {
@@ -31,11 +30,7 @@ export class Alert extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    alert: state.alert
+    alert: state.alert.content
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(alertActions, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(Alert)
+export default connect(mapStateToProps)(Alert)

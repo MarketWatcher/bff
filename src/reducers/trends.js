@@ -1,9 +1,30 @@
-export default function trendReducer(state = [], action) {
+export default function trendReducer(state = {
+    isFetching: false,
+    content: []
+}, action) {
     switch(action.type) {
-    case "GET_TRENDS_SUCCESSFUL":
-        return action.trends
-    case "GET_TRENDS_UNSUCCESSFUL":
-        return {error: true, message: action.error + ""}
+    case "TRENDS_REQUEST":
+        return Object.assign({}, state, {
+            isFetching: true
+        })
+    case "TRENDS_SUCCESSFUL":
+        var trends = action.response.map((alert) => {
+            return {
+                delta: 0,
+                alert: alert
+            }
+        })
+        
+        return Object.assign({}, state, {
+            isFetching: false,
+            content: trends
+        })
+    case "TRENDS_FAILURE":
+        return Object.assign({}, state, {
+            isFetching: false,
+            content: [],
+            error: action.error
+        })
     default:
         return state
 

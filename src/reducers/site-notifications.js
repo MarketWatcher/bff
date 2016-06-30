@@ -1,5 +1,4 @@
 import Immutable from "immutable"
-
 const getTime = () => {
     let d = new Date()
     return d.getTime()

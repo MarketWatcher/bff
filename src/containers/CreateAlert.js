@@ -1,18 +1,17 @@
 import React, { Component } from "react"
-import * as actionCreators  from "../actions/alerts"
+import { createAlert, cancelCreateAlert, resetCreateAlert }  from "../actions"
 import { connect } from "react-redux"
-import { bindActionCreators } from "redux"
 
 import schema from "../schemas/alert"
 import Validator from "../utils/validator"
 import classNames from "classnames"
-import AlertMessage from "./AlertMessage"
+import SiteAlert from "../components/SiteAlert"
 
 export class CreateAlert extends Component {
     state = {
         alert: {
             name: "",
-            ownerID: 1,
+            ownerID: this.props.auth.user.id,
             requiredCriteria: "",
             niceTohaveCriteria: "",
             excludedCriteria: "",
@@ -22,22 +21,17 @@ export class CreateAlert extends Component {
     }
 
     componentDidMount() {
-        this.props.actions.resetAlertState()
+        this.props.dispatch(resetCreateAlert())
     }
 
     validator = new Validator(schema)
-
-    handleCancel = (e) => {
-        e.preventDefault()
-        this.props.actions.cancel()
-    }
 
     handleSave = (e) => {
         e.preventDefault()
         this.validator.validate(this.state.alert)
         this.forceUpdate()
         if(this.validator.isValid)
-            this.props.actions.createAlert(this.state.alert)
+            this.props.dispatch(createAlert(this.state.alert))
     }
 
     handleInputChange = (field, e) => {
@@ -49,17 +43,14 @@ export class CreateAlert extends Component {
     }
 
     render() {
-        let errorMessage = null
-        if(this.props.alertRequestStatus && this.props.alertRequestStatus.messageVisible){
-            errorMessage = "There was an error creating the alert"
-        }
-
         return (
             <div className="content">
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
-                            <AlertMessage message={errorMessage} danger/>
+                            {this.props.newAlert && this.props.newAlert.error &&
+                                <SiteAlert message="There was an error creating the alert" danger/>
+                            }
                             <div className="card">
                                 <div className="header header-underlined">
                                     <h4 className="title">Create Alert</h4>
@@ -108,7 +99,7 @@ export class CreateAlert extends Component {
                                             <div className="col-md-6 col-md-offset-6 text-right">
                                                 <button type="submit" id="save-alert" className="btn btn-info btn-fill btn-wd" onClick={this.handleSave}>Create</button>
                                                 &nbsp;
-                                                <button id="cancel" className="btn btn-danger btn-fill btn-wd" onClick={this.handleCancel}>Cancel</button>
+                                                <a id="cancel" className="btn btn-danger btn-fill btn-wd" onClick={()=> this.props.dispatch(cancelCreateAlert())}>Cancel</a>
                                             </div>
                                         </div>
                                     </form>
@@ -145,12 +136,8 @@ class CreateAlertInputRow extends Component {
 /* eslint-enable */
 
 const mapStateToProps = (state) => ({
-    alertRequestStatus: state.newAlert,
-    user: state.user
+    newAlert: state.newAlert,
+    auth: state.auth
 })
 
-const mapDispatchToProps = (dispatch) => ({
-    actions : bindActionCreators(actionCreators, dispatch)
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(CreateAlert)
+export default connect(mapStateToProps)(CreateAlert)

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import LoginForm from "./LoginForm"
+import LoginForm from "../containers/LoginForm"
 import backgroundImage from "../assets/img/background-landing.png"
 
 export default class Landing extends Component {

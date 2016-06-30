@@ -1,60 +1,60 @@
-import AlertApi from "../api/alert-api"
 import { push } from "react-router-redux"
-import {NotificationActionFactory} from "./site-notifications"
+import { success } from "./site-notifications"
 
-export function listAlerts(ownerId) {
+import { CALL_API } from "../middleware/api"
+
+export function listAlerts(userId) {
+    return {
+        [CALL_API] : {
+            endpoint: `/api/alerts/owner_id/${userId}`,
+            types: ["ALERTS_REQUEST", "ALERTS_SUCCESSFUL", "ALERTS_FAILURE"]
+        }
+    }
+}
+
+export function findAlertById(id) {
+    return {
+        [CALL_API] : {
+            endpoint: `/api/alerts/id/${id}`,
+            types: ["ALERT_REQUEST", "ALERT_SUCCESSFUL", "ALERT_FAILURE"]
+        }
+    }
+}
+
+export function createAlert(alert) {
     return dispatch => {
-        AlertApi.list(ownerId, (alerts) => {
-            dispatch({
-                type: "ALERTS_RECEIVED",
-                alerts: alerts
-            })
-        }, (error) => {
-            dispatch({
-                type: "ALERTS_NOT_FOUND",
-                error: error
-            })
+        let transformedAlert = {
+            owner_id : alert.ownerID,
+            name : alert.name,
+            required_criteria : alert.requiredCriteria,
+            nice_to_have_criteria : alert.niceTohaveCriteria,
+            excluded_criteria : alert.excludedCriteria,
+            threshold : parseInt(alert.threshold, 10),
+            status : 1
+        }
+        
+        dispatch({
+            [CALL_API]: {
+                endpoint: "/api/alerts",
+                types: ["CREATE_ALERT_REQUEST", "CREATE_ALERT_SUCCESSFUL", "CREATE_ALERT_FAILURE"],
+                config: {
+                    method: "POST",
+                    headers: {
+                        "Accept": "application/json",
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(transformedAlert)
+                },
+                onResponse: () => {
+                    dispatch(success("Alert was created", 10000))
+                    dispatch(push("/dashboard"))
+                }
+            }
         })
     }
 }
 
-export function findById(id) {
-    return dispatch => {
-        AlertApi.findById(id, (alert) => {
-            dispatch({
-                type: "GET_ALERT_SUCCESSFUL",
-                alert: alert
-            })
-        }, (error) => {
-            dispatch({
-                type: "GET_ALERT_UNSUCCESSFUL",
-                error: error
-            })
-        })
-    }
-}
-
-export function createAlert(newAlert) {
-
-    return dispatch => {
-        AlertApi.createAlert(newAlert, (alert) => {
-            dispatch({
-                type: "CREATE_ALERT_SUCCESSFUL",
-                alert: alert
-            })
-
-            dispatch(NotificationActionFactory.success("Alert was created", 10000))
-            dispatch(push("/dashboard"))
-        }, (error) => {
-            dispatch({
-                type: "CREATE_ALERT_UNSUCCESSFUL",
-                error: error
-            })
-        })
-    }
-}
-
-export function cancel() {
+export function cancelCreateAlert() {
     return dispatch => {
         dispatch({
             type: "CREATE_ALERT_CANCEL"
@@ -63,7 +63,7 @@ export function cancel() {
     }
 }
 
-export function resetAlertState() {
+export function resetCreateAlert() {
     return dispatch => {
         dispatch({
             type: "RESET_ALERT_STATE"

@@ -1,17 +1,10 @@
-import TrendApi from "../api/trend-api"
+import { CALL_API } from "../middleware/api"
 
 export function listTrends(userId) {
-    return dispatch => {
-        TrendApi.list(userId, (trends) => {
-            dispatch({
-                type: "GET_TRENDS_SUCCESSFUL",
-                trends: trends
-            })
-        }, (error) => {
-            dispatch({
-                type: "GET_TRENDS_UNSUCCESSFUL",
-                error: error
-            })
-        })
+    return {
+        [CALL_API] : {
+            endpoint: `/api/alerts/owner_id/${userId}`,
+            types: ["TRENDS_REQUEST", "TRENDS_SUCCESSFUL", "TRENDS_FAILURE"]
+        }
     }
 }

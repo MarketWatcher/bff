@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import classNames from "classnames"
 
-export default class AlertMessage extends Component {
+export default class SiteAlert extends Component {
     render() {
         return (
             <div className={classNames("alert alert-with-icon", {

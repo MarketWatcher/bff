@@ -1,7 +1,7 @@
 import React from "react"
 import { expect } from "chai"
 import { mount } from "enzyme"
-import { LoginForm } from "../../src/components/LoginForm"
+import { LoginForm } from "../../src/containers/LoginForm"
 
 describe("LoginForm component", () => {
     let user = {errorMessage: ""}
