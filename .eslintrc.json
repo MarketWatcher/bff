@@ -40,7 +40,10 @@
             "never"
         ],
         "no-unused-vars" : [
-            "warn"
+            "warn",
+            {
+                "args": "none"
+            }
         ],
         "react/display-name": 1,
         "react/jsx-boolean-value": 1,
