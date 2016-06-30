@@ -1,7 +1,6 @@
 import { push } from "react-router-redux"
 import { CALL_API } from "../middleware/api"
 
-
 function loginApiCall(email, password) {
     return {
         [CALL_API] : {
@@ -38,7 +37,6 @@ function requestLogin(email, password) {
         creds: {email, password}
     }
 }
-
 
 export function logout() {
     return dispatch => {

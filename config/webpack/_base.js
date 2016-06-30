@@ -1,6 +1,7 @@
 import HtmlWebpackPlugin from "html-webpack-plugin"
 import GitSHAPlugin from "git-sha-webpack-plugin"
 import path from "path"
+import webpack from "webpack"
 
 export default {
     name: "market-watcher",
@@ -13,28 +14,36 @@ export default {
         filename: "mw.[chunkgitsha].js"
     },
     plugins : [
+        new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.DedupePlugin(),
         new HtmlWebpackPlugin({
             template : path.resolve(__dirname, "../../index.html"),
             inject: "body",
             hash: false,
-            filename : "index.html"
+            filename : "index.html",
+            minify   : {
+                collapseWhitespace : true
+            }
         }),
         new GitSHAPlugin({
             shaLength: 40,
             useHead: true
+        }), new webpack.ProvidePlugin({
+            fetch: "imports?this=>global!exports?global.fetch!whatwg-fetch"
         })
     ],
     node: {
-        crypto: "empty",
         net: "empty",
-        dns: "empty"
+        dns: "empty",
+        crypto: "empty",
+        moment: "empty"
     },
     module : {
         loaders : [
             {
                 test: /\.js$/,
-                exclude: /node_modules/,
-                loaders: ["react-hot", "babel?presets[]=es2015&presets[]=stage-0&presets[]=react"]
+                exclude: [/node_modules/, /joi-browser/],
+                loaders: ["babel?presets[]=es2015&presets[]=stage-0&presets[]=react"]
             },
             {
                 test: /\.html$/,

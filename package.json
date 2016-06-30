@@ -19,13 +19,17 @@
   "bugs": {
     "url": "https://github.com/ThoughtWorksTurkey/marketwatcher.io/issues"
   },
+  "browser": {
+    "joi": "joi-browser"
+  },
   "homepage": "https://github.com/ThoughtWorksTurkey/marketwatcher.io#readme",
-  "dependencies": {
+  "devDependencies": {
     "bootstrap": "^3.3.6",
     "classnames": "^2.2.5",
     "font-awesome": "^4.6.3",
     "immutable": "^3.8.1",
     "joi": "^8.4.2",
+    "joi-browser": "^8.4.0",
     "react": "^15.0.2",
     "react-bootstrap": "^0.29.4",
     "react-dom": "^15.0.2",
@@ -35,9 +39,7 @@
     "react-router-redux": "^4.0.4",
     "redux": "^3.5.2",
     "redux-auth-wrapper": "^0.5.0",
-    "redux-thunk": "^2.1.0"
-  },
-  "devDependencies": {
+    "redux-thunk": "^2.1.0",
     "babel-core": "^6.9.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
@@ -57,10 +59,12 @@
     "eslint-plugin-import": "^1.8.0",
     "eslint-plugin-jsx-a11y": "^1.2.2",
     "eslint-plugin-react": "^5.1.1",
+    "exports-loader": "^0.6.3",
     "express": "^4.13.4",
     "file-loader": "^0.8.5",
     "git-sha-webpack-plugin": "moliver-bb/git-sha-webpack-plugin",
     "html-webpack-plugin": "^1.7.0",
+    "imports-loader": "^0.6.5",
     "istanbul": "^1.0.0-alpha",
     "jsdom": "^9.2.0",
     "mocha": "^2.5.2",

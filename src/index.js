@@ -37,6 +37,7 @@ const routerComponent = (
   </Router>
 )
 
+/*globals __DEVELOPMENT__ */
 if (__DEVELOPMENT__ && !window.devToolsExtension) {
     render((
         <Provider store={store}>
