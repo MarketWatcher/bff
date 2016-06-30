@@ -24,7 +24,16 @@ export class LoginForm extends Component {
                 </div>
                 <div className="content">
                     <form onSubmit={this.handleSubmit}>
-
+                        {this.props.auth.error && this.props.auth.incorrectCredentials &&
+                            <div>
+                                <span id="error-text" className="text-danger">Incorrect email or password</span>
+                            </div>
+                        }
+                        {this.props.auth.error && !this.props.auth.incorrectCredentials &&
+                            <div>
+                                <span id="error-text" className="text-danger">There was an error logging in</span>
+                            </div>
+                        }
                         <div className="row">
                             <div className="col-md-12">
                                 <div className="form-group">

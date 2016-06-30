@@ -20,7 +20,8 @@ export default function auth(state = {
         return Object.assign({}, state, {
             isFetching: false,
             isAuthenticated: false,
-            message: action.message
+            error: action.error,
+            incorrectCredentials: action.status == 401
         })
     case "LOGOUT":
         return Object.assign({}, {
