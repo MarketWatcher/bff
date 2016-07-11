@@ -1,11 +1,11 @@
 # marketwatcher.io [![Build Status](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master/build_image)](https://snap-ci.com/ThoughtWorksTurkey/marketwatcher.io/branch/master) [![Coverage Status](https://coveralls.io/repos/github/ThoughtWorksTurkey/marketwatcher.io/badge.svg?branch=master)](https://coveralls.io/github/ThoughtWorksTurkey/marketwatcher.io?branch=master)
 
-Front End repository for Market Watcher
+Front-end repository for Market Watcher
 
 ## Development Instructions
- 
+
 ### Get Dependencies
-```sh 
+```sh
 npm install
 ```
 
@@ -16,13 +16,13 @@ npm run test
 
 ### Start Development Server
 ```sh
-npm run start 
-``` 
+npm run start
+```
 After server starts, you can reach your development server via [http://localhost:3000](http://localhost:3000)
 
 ### Package
 ```sh
-npm run build 
+npm run build
 ```
 When `build` completes, you'll find your artifact in `dist` directory.
 
