@@ -84,10 +84,6 @@ a .trend-tile .card:hover {
     }
 }
 
-.navbar-collapse {
-    display: block!important;
-}
-
 .icon-create-alert {
     color: #888;
 }
@@ -163,4 +159,9 @@ footer {
     opacity: 0.9;
     margin-top: 20px;
     transition: all 0.5s ease-in-out
+}
+
+/* TODO this should be fixed when we have time for responsive design */
+.navbar .navbar-collapse.collapse, .navbar .navbar-collapse.collapse.in, .navbar .navbar-collapse.collapsing {
+    display: block!important;
 }
