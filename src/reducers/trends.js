@@ -10,11 +10,11 @@ export default function trendReducer(state = {
     case "TRENDS_SUCCESSFUL":
         var trends = action.response.map((alert) => {
             return {
-                delta: 0,
+                delta: Math.ceil(Math.random() * 10000) - 5000,
                 alert: alert
             }
         })
-        
+
         return Object.assign({}, state, {
             isFetching: false,
             content: trends

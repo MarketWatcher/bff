@@ -57,7 +57,7 @@ export function newAlert(state = { isFetching: false, content: {} }, action) {
     case "CREATE_ALERT_FAILURE":
         return Object.assign({}, state, {
             isFetching: false,
-            content: action.error
+            error: action.error
         })
     case "CREATE_ALERT_CANCEL":
     case "RESET_ALERT_STATE":

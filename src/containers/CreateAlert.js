@@ -28,6 +28,7 @@ export class CreateAlert extends Component {
 
     handleSave = (e) => {
         e.preventDefault()
+        if(this.props.newAlert.isFetching) return
         this.validator.validate(this.state.alert)
         this.forceUpdate()
         if(this.validator.isValid)
@@ -51,6 +52,7 @@ export class CreateAlert extends Component {
                             {this.props.newAlert && this.props.newAlert.error &&
                                 <SiteAlert message="There was an error creating the alert" danger/>
                             }
+
                             <div className="card">
                                 <div className="header header-underlined">
                                     <h4 className="title">Create Alert</h4>
@@ -97,9 +99,9 @@ export class CreateAlert extends Component {
                                         </CreateAlertInputRow>
                                         <div className="row">
                                             <div className="col-md-6 col-md-offset-6 text-right">
-                                                <button type="submit" id="save-alert" className="btn btn-info btn-fill btn-wd" onClick={this.handleSave}>Create</button>
+                                                <a id="cancel" className={classNames("btn btn-danger btn-fill btn-wd", {"disabled": this.props.newAlert.isFetching})} onClick={()=> this.props.dispatch(cancelCreateAlert())}>Cancel</a>
                                                 &nbsp;
-                                                <a id="cancel" className="btn btn-danger btn-fill btn-wd" onClick={()=> this.props.dispatch(cancelCreateAlert())}>Cancel</a>
+                                                <button type="submit" id="save-alert" className={classNames("btn btn-info btn-fill btn-wd", {"disabled": this.props.newAlert.isFetching})} onClick={this.handleSave}>Create</button>
                                             </div>
                                         </div>
                                     </form>
