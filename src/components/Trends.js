@@ -14,7 +14,7 @@ export default class Trends extends Component {
                 </DashboardTile>
 
                 {this.props.trends.map &&
-                    this.props.trends.map((trend) => {
+                    this.props.trends.valueSeq().map((trend) => {
                         return (
                             <Trend trend={trend} key={trend.alert.id}/>
                         )
