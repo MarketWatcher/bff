@@ -27,23 +27,23 @@ export function trend(state = {
 
 export function trends(state = {
     isFetching: false,
-    content: Immutable.Map({})
+    content: Immutable.List([])
 }, action) {
     switch(action.type) {
     case "TRENDS_REQUEST":
         return Object.assign({}, state, {
-            isFetching: true
+            isFetching: true,
+            content: Immutable.List([])
         })
     case "TRENDS_SUCCESSFUL":
         return Object.assign({}, state, {
             isFetching: false,
-            content: Immutable.Map(action.response.reduce((trends, alert) => {
-                trends[alert.id] = {
-                    delta: 0,
-                    alert: alert
+            content: Immutable.List(action.response.map((alert) => {
+                return {
+                    alert: alert,
+                    delta: null
                 }
-                return trends
-            }, {}))
+            }))
         })
     case "TRENDS_FAILURE":
         return Object.assign({}, state, {
@@ -56,12 +56,11 @@ export function trends(state = {
             isFetching: true
         })
     case "TREND_SUCCESSFUL":
-        state.content.set(`${action.response.alertId}`, Object.assign(state.content.get(`${action.response.alertId}`), {
-            delta: action.response.delta
-        }))
-
         return Object.assign({}, state, {
-            isFetching: false
+            isFetching: false,
+            content: state.content.update(
+                state.content.findIndex((trend) => trend.alert.id ===  action.response.alertId),
+                (trend) => Object.assign(trend, { delta: action.response.delta}))
         })
     case "TREND_FAILURE":
         return Object.assign({}, state, {

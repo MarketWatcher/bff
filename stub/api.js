@@ -3,6 +3,30 @@ var bodyParser = require("body-parser")
 var app = express()
 
 var alerts = []
+
+var trends = [
+    {
+        alertId: 1,
+        delta: 10
+    },
+    {
+        alertId: 2,
+        delta: 100
+    },
+    {
+        alertId: 3,
+        delta: 0
+    },
+    {
+        alertId: 4,
+        delta: 10
+    },
+    {
+        alertId: 5,
+        delta: 10
+    }
+]
+
 var idCount = 1
 
 app.use(bodyParser.json())
@@ -23,13 +47,8 @@ app.post("/api/alerts", function(req, res){
     res.send(req.body)
 })
 
-app.get("/api/trends/user/:id", (req, res) => {
-    res.send(alerts.map((alert) => {
-        return {
-            alert: alert,
-            delta: Math.floor(Math.random() * 10000 - 5000)
-        }
-    }))
+app.get("/api/trends/alert-id/:id", (req, res) => {
+    res.status(200).json(trends.filter(trend => trend.alertId == req.params.id)[0])
 })
 
 app.listen(9000, function () {
