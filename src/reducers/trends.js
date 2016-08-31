@@ -65,7 +65,7 @@ export function trends(state = {
     case "TREND_FAILURE":
         return Object.assign({}, state, {
             isFetching: false,
-            error: action.error
+            error: (action.status != 404) ? action.error : undefined
         })
     default:
         return state

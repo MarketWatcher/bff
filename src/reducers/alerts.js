@@ -55,9 +55,14 @@ export function newAlert(state = { isFetching: false, content: {} }, action) {
             content: action.response
         })
     case "CREATE_ALERT_FAILURE":
+        var error = "There was an error creating the alert"
+
+        if(action.status == 409) {
+            error = "You already created an alert with the same title, please pick a different title"
+        }
         return Object.assign({}, state, {
             isFetching: false,
-            error: action.error
+            error: error
         })
     case "CREATE_ALERT_CANCEL":
     case "RESET_ALERT_STATE":

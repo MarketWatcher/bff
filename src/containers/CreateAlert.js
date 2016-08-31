@@ -50,7 +50,7 @@ export class CreateAlert extends Component {
                     <div className="row">
                         <div className="col-lg-8 col-md-12 col-sm-12 col-xs-12">
                             {this.props.newAlert && this.props.newAlert.error &&
-                                <SiteAlert message="There was an error creating the alert" danger/>
+                                <SiteAlert message={this.props.newAlert.error} danger/>
                             }
 
                             <div className="card">
