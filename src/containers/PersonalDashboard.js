@@ -6,7 +6,7 @@ import Trends from "../components/Trends"
 import Notifications from "../components/Notifications"
 import SiteAlert from "../components/SiteAlert"
 
-export default class PersonalDashboard extends Component {
+export class PersonalDashboard extends Component {
     componentDidMount(){
         this.props.dispatch(listTrends(this.props.auth.user.id))
     }
